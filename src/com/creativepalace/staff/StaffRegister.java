@@ -1,4 +1,4 @@
-package com.creativepalace.controller;
+package com.creativepalace.staff;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import com.creativepalace.controller.AbstractServlet;
+import com.creativepalace.controller.ControllerUtility;
 import com.creativepalace.db.StaffDB;
 import com.creativepalace.model.Staff;
 
@@ -31,11 +33,9 @@ public class StaffRegister extends AbstractServlet {
 		if (session.isNew()) {
 			errorExistence = false;
 			errorMessage = "";
-			System.out.println("Session is new");
 		} else {
 			errorExistence = (boolean) session.getAttribute("error");
 			errorMessage = (String) session.getAttribute("errorMessage");
-			System.out.println("Session been created.");
 		}
 
 		try {

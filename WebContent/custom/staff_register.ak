@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="form-wrapper">
 			<div class="question-text">
-				<h2>Already have an account? <a href="#">Sign in.</a></h2>
+				<h2>Already have an account? <a href="staff_login">Sign in.</a></h2>
 			</div> <!-- .question-text -->
 			<form action="staff_register" method="POST" enctype="multipart/form-data">
 				<div class="form-title">

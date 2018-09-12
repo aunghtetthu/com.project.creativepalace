@@ -4,13 +4,29 @@
 	<meta charset="utf-8">
 	<title>Creative Palace</title>
 	<link rel="stylesheet" type="text/css" href="#agkt{baseUrl}/assets/library/bootstrap/bootstrap.min.css">
-	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="#agkt{baseUrl}/assets/css/style.css">
 </head>
 <body>
 <header>
 	<div class="container">
-		<img src="#agkt{baseUrl}/assets/img/tick-512.png" width="70px" height="70px">
+		<div class="row">
+			<div class="col-4 text-left">
+				<div class="logo">
+					<img src="#agkt{baseUrl}/assets/img/tick-512.png">
+				</div> <!-- .logo -->
+			</div> <!-- .col-4 .text-left -->
+			<div class="col-4 text-center">
+				<div class="menu-wrapper">
+					<ul>
+						<li><a href="#">Home</a></li>
+					</ul>
+				</div> <!-- .menu-wrapper -->
+			</div> <!-- .col-4 .text-center -->
+			<div class="col-4 text-right">
+				<a href="#" class="btn btn-success">Log out</a>
+			</div> <!-- .col-4 .text-right -->
+		</div> <!-- .row -->
 	</div> <!-- .container -->
 </header>

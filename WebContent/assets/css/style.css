@@ -7,13 +7,47 @@ body {
 
 header {
 	background-color: #FFFFFF;
-	height: 100px;
-	padding: 15px;
+	padding: 20px;
+	min-height: 80px;
 	border-bottom: 2px #3AFF51 solid;
 }
 
-a {
-	text-decoration: underline;
+header .container {
+	position: relative;
+}
+
+header .logo {
+	position: absolute;
+	top: -6px;
+}
+
+header .logo img {
+	max-width: 50px;
+	max-height: 50px;
+}
+
+header .menu-wrapper ul {
+	list-style-type: none;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+}
+
+header .menu-wrapper ul li {
+	display: block;
+	/*padding: 20px;*/
+	margin: 5px;
+}
+
+header .menu-wrapper ul li a {
+	color: inherit;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+header .menu-wrapper ul li a:hover {
+	color: #3AFF51;
+	border-bottom: 4px solid #3AFF51;
 }
 
 footer {
@@ -23,6 +57,42 @@ footer {
 	font-weight: bold;
 	text-align: center;
 }
+
+.my-header {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.my-title {
+	font-size: 36px;
+	font-weight: bold;
+}
+
+/* ----------------------------------------------------------------------------
+#navigation-section starts here
+---------------------------------------------------------------------------- */
+#navigation-section {
+	border-bottom: 2px #3AFF51 solid;
+	background-color: #FFFFFF;
+	font-weight: bold;
+	position: sticky;
+	top: -1px;
+}
+
+#navigation-section .form-inline button:last-child {
+	margin-left: 5px;
+}
+
+#navigation-section .form-inline select {
+	margin-right: 2px;
+}
+
+#navigation-section .navbar-nav li {
+	margin-right: 25px;
+}
+/* ----------------------------------------------------------------------------
+#navigation-section starts here
+---------------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------------
 #form-section starts here
@@ -37,6 +107,10 @@ footer {
 	padding: 10px 50px;
 	background-color: #FFFFFF;
 	border: 2px #3AFF51 solid;
+}
+
+#form-section .form-wrapper a {
+	text-decoration: underline;
 }
 
 #form-section .form-wrapper .question-text {
@@ -84,4 +158,95 @@ footer {
 }
 /* ----------------------------------------------------------------------------
 #error-message ends here
+---------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------
+#user-profile-section starts here
+---------------------------------------------------------------------------- */
+#user-profile-section {
+	margin: 50px auto 60px;
+}
+
+#user-profile-section .container {
+	background-color: #FFFFFF;
+	padding: 30px 45px;
+	border: 2px #3AFF51 solid;
+	border-radius: 10px; 
+}
+
+.user-profile .my-header {
+	margin-bottom: 45px;
+}
+
+.user-profile ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 45px;
+}
+
+.user-profile ul li {
+	margin-bottom: 10px;
+}
+
+#user-profile-section .profile-photo img {
+	max-width: 300px;
+	max-height: 300px;
+}
+/* ----------------------------------------------------------------------------
+#user-profile-section ends here
+---------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------
+#categorized-section starts here
+---------------------------------------------------------------------------- */
+#categorized-section {
+	padding: 40px 0;
+	margin: 40px 0;
+}
+
+#categorized-section .my-title {
+	margin-bottom: 20px;
+}
+
+#categorized-section .category {
+	background-color: #FFFFFF;
+	width: 90%;
+	height: 200px;
+	padding: 50px;
+	margin: 40px auto 0;
+	border: 2px #3AFF51 solid;
+	border-radius: 10px;
+}
+
+.category i {
+	font-size: 45px;
+	color: #3AFF51;
+	margin-bottom: 20px;
+}
+
+#categorized-section div.category:hover, #categorized-section div.category:hover i {
+	color: #FFFFFF;
+	background-color: #3AFF51;
+	cursor: pointer;
+}
+
+/* ----------------------------------------------------------------------------
+#categorized-section ends here
+---------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------
+#table-section starts here
+---------------------------------------------------------------------------- */
+#table-section table {
+	background-color: #FFFFFF;
+	margin-top: 50px;
+	border: 2px #3AFF51 solid;
+}
+
+#table-section table th[colspan] {
+	background-color: #3AFF51;
+}
+/* ----------------------------------------------------------------------------
+#table-section ends here
 ---------------------------------------------------------------------------- */

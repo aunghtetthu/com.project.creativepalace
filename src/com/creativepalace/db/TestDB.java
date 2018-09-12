@@ -29,9 +29,18 @@ public class TestDB extends AbstractServlet {
 //			s.setStaffPhoto("This is photo");
 //			s.setStaffRole("admin");
 //			sdb.createStaff(s);
-			String email = "testemail@gmail.com";
-			String sql = "SELECT * FROM staff WHERE staff_email='" + email + "'";
-			ArrayList<Staff> result = sdb.reteriveStaff(sql);
+			String email = "kate@gmail.com";
+//			String sql = "SELECT * FROM staff WHERE staff_email='" + email + "'";
+//			ArrayList<Staff> result = sdb.reteriveStaff(sql);
+			
+			Staff s = sdb.getStaffByEmail(email);
+			if(s == null) {
+				System.out.println("This is null.");
+			} else {
+				System.out.println("This is not null.");
+			}
+			System.out.println(s.getStaffEmail());
+			System.out.println(s.getStaffPassword());
 			this.showView(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
