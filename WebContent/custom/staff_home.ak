@@ -19,7 +19,7 @@
 			<div class="col-5">
 				<div class="profile-photo text-right">
 					<!-- <img class="img-fluild img-thumbnail" src="http://localhost:8080/com.project.creativepalace/#agkt{photo}">  -->
-					<img class="img-fluid img-thumbnail" src="#agkt{baseUrl}/staff_photo/:Screenshot from 2018-07-30 22-04-51.png">
+					<img class="img-fluid img-thumbnail" src="#agkt{photo}">
 				</div>
 			</div> <!-- .col-5 -->
 		</div> <!-- .row -->

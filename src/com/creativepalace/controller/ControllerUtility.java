@@ -24,8 +24,9 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 public class ControllerUtility {
 	private String rootPath = System.getProperty("catalina.home");
 	
-	public String uploadFile(final Logger LOGGER, final String destination, final Part filePart) throws IOException {
-		final String path = rootPath + File.separator + destination + File.separator;
+	public String uploadFile(final Logger LOGGER, final String destination, final Part filePart, HttpServletRequest request) throws IOException {
+//		final String path = rootPath + File.separator + destination + File.separator;
+		final String path = request.getServletContext().getRealPath(File.separator) + destination + File.separator;
 		final String fileName = getFileName(LOGGER, filePart);
 		OutputStream out = null;
 		InputStream fileContent = null;
@@ -104,5 +105,18 @@ public class ControllerUtility {
 		obj.addViewObject("success", success);
 		obj.addViewObject("successMessage", message);
 		obj.addViewObject("locationAssign", locationAssign);
+	}
+	
+	public String fileLocation(String filePart, String folder, HttpServletRequest request) {
+//		File file = new File(rootPath + File.separator + folder + File.separator + filePart);
+		String baseUrl;
+		if (request.getServerPort() != 80) {			
+			baseUrl = "http://" + request.getServerName() + ":"
+					+ request.getServerPort() + "" + request.getContextPath();
+		} else {
+			baseUrl = "http://" + request.getServerName() + ""
+					+ request.getContextPath();
+		}
+		return baseUrl + File.separator + folder + File.separator + filePart;
 	}
 }

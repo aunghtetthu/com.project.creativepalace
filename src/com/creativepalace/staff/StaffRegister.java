@@ -28,10 +28,7 @@ public class StaffRegister extends AbstractServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-		if(!isMultipart) {
-			System.out.println("There is no file upload.");
-		}
+		
 		
 		boolean errorExistence;
 		String errorMessage;
@@ -66,7 +63,7 @@ public class StaffRegister extends AbstractServlet {
 						s.setStaffPassword(password);
 						s.setStaffRole(request.getParameter("role"));
 						s.setStaffPhone(request.getParameter("phone"));
-						s.setStaffPhoto(cu.uploadFile(LOGGER, path, filePart));
+						s.setStaffPhoto(cu.uploadFile(LOGGER, path, filePart, request));
 						sdb.createStaff(s);						
 						
 						errorExistence = false;
@@ -101,6 +98,11 @@ public class StaffRegister extends AbstractServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+		if(!isMultipart) {
+			System.out.println("There is no file upload.");
+		} else 
+			System.out.println("This is file upload.");
 		doGet(request, response);
 	}
 

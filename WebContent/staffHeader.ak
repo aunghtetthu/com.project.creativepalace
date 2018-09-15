@@ -21,7 +21,7 @@
 			<div class="col-4 text-center">
 				<div class="menu-wrapper">
 					<ul>
-						<li><a href="#">Home</a></li>
+						<li><a href="staff_home">Home</a></li>
 					</ul>
 				</div> <!-- .menu-wrapper -->
 			</div> <!-- .col-4 .text-center -->

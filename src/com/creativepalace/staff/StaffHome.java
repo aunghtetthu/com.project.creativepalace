@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.creativepalace.controller.AbstractServlet;
+import com.creativepalace.controller.ControllerUtility;
 import com.creativepalace.model.Staff;
 
 @WebServlet("/custom/staff_home")
@@ -22,6 +23,7 @@ public class StaffHome extends AbstractServlet {
 		if(session.getAttribute("staffObj") != null) {
 			try {
 				Staff s = (Staff) session.getAttribute("staffObj");
+				ControllerUtility cu = new ControllerUtility();
 				
 				this.setHeader("staffHeader");
 				
@@ -29,7 +31,7 @@ public class StaffHome extends AbstractServlet {
 				this.addViewObject("role", s.getStaffRole());
 				this.addViewObject("email", s.getStaffEmail());
 				this.addViewObject("phone", s.getStaffPhone());
-				this.addViewObject("photo", s.getStaffPhoto());
+				this.addViewObject("photo", cu.fileLocation(s.getStaffPhoto(), "staff_photo", request));
 				
 				this.showView(request, response);
 			} catch (Exception e) {
