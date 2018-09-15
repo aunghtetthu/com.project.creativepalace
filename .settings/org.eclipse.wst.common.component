@@ -4,6 +4,7 @@
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/" source-path="/WebContent/assets"/>
+        <wb-resource deploy-path="/" source-path="/WebContent/staff_photo"/>
         <property name="context-root" value="com.project.creativepalace"/>
         <property name="java-output-path" value="/com.project.creativepalace/build/classes"/>
     </wb-module>

@@ -211,12 +211,15 @@ footer {
 
 #categorized-section .category {
 	background-color: #FFFFFF;
+	display: block;
 	width: 90%;
 	height: 200px;
 	padding: 50px;
 	margin: 40px auto 0;
 	border: 2px #3AFF51 solid;
 	border-radius: 10px;
+	text-decoration: none;
+	color: #333333;
 }
 
 .category i {
@@ -225,7 +228,7 @@ footer {
 	margin-bottom: 20px;
 }
 
-#categorized-section div.category:hover, #categorized-section div.category:hover i {
+#categorized-section a.category:hover, #categorized-section a.category:hover i {
 	color: #FFFFFF;
 	background-color: #3AFF51;
 	cursor: pointer;

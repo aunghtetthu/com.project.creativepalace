@@ -9,12 +9,19 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-  <context-param> 
-      <description>Location to store uploaded file</description> 
-      <param-name>file-upload</param-name> 
-      <param-value>
-         /home/aunghtetthu/MyFile/Java Projects/CreativePalace/com.project.creativepalace/staff_photo/
-      </param-value> 
+   
+   <context-param>
+   		<param-name>staffphoto.dir</param-name>
+      	<param-value>staff_photo</param-value>
    </context-param>
+   
+   <context-param>
+   		<param-name>studentphoto.dir</param-name>
+      	<param-value>student_photo</param-value>
+   </context-param>
+   
+   <context-param>
+    <param-name>tempfile.dir</param-name>
+    <param-value>tmpfiles</param-value>
+  </context-param>
 </web-app>

@@ -45,14 +45,7 @@ public class StaffLogin extends AbstractServlet {
 						errorExistence = false;
 						errorMessage = "";
 						String role = s.getStaffRole();
-						
-						if (role.equals("admin")) {
-							response.sendRedirect("admin_home");							
-						} else if (role.equals("finance-staff")) {
-							response.sendRedirect("finance_home");
-						} else if (role.equals("teacher")) {
-							response.sendRedirect("teacher_home");
-						}
+						response.sendRedirect("staff_home");
 					} else {
 						errorExistence = true;
 						errorMessage = "Password is incorrect.";
@@ -67,7 +60,7 @@ public class StaffLogin extends AbstractServlet {
 			session.setAttribute("errorMessage", errorMessage);
 			this.addViewObject("errorExistence", errorExistence);
 			this.addViewObject("errorMessage", errorMessage);
-			this.setHeader("staffHeader");
+			this.setHeader("staffPlainHeader");
 			this.showView(request, response);
 		} catch (Exception e) {
 			// TODO: handle exception

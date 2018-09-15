@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="form-wrapper">
 			<div class="question-text">
-				<h2>A new staff? <a href="#">Create an account.</a></h2>
+				<h2>A new staff? <a href="staff_register">Create an account.</a></h2>
 			</div> <!-- .question-text -->
 			<form action="staff_login" method="POST">
 				<div class="form-title">

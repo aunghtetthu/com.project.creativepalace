@@ -6,20 +6,32 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-public class ControllerUtility {
-	public String uploadFile(final Logger LOGGER, final String path, final Part filePart) throws IOException {
-		final String fileName = getFileName(LOGGER, filePart);
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-		String returnFile = null;
+public class ControllerUtility {
+	private String rootPath = System.getProperty("catalina.home");
+	
+	public String uploadFile(final Logger LOGGER, final String destination, final Part filePart) throws IOException {
+		final String path = rootPath + File.separator + destination + File.separator;
+		final String fileName = getFileName(LOGGER, filePart);
 		OutputStream out = null;
 		InputStream fileContent = null;
 		try {
-			out = new FileOutputStream(new File(path + File.pathSeparator + fileName));
+//			out = new FileOutputStream(new File(path + File.pathSeparator + fileName));
+			out = new FileOutputStream(new File(path + fileName));
 			fileContent = filePart.getInputStream();
 
 			int read = 0;
@@ -29,13 +41,11 @@ public class ControllerUtility {
 				out.write(bytes, 0, read);
 			}
 			LOGGER.log(Level.INFO, "File{0}being uploaded to {1}", new Object[] { fileName, path });
-			returnFile = fileName;
 		} catch (FileNotFoundException fne) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE, "Problems during file upload. Error: {0}",
 					new Object[]{fne.getMessage()});
 			fne.printStackTrace();
-			returnFile = null;
 		} finally {
 			if (out != null) {
 				out.close();
@@ -44,9 +54,9 @@ public class ControllerUtility {
 				fileContent.close();
 			}
 		}
-		return returnFile;
+		return fileName;
 	}
-
+	
 	private String getFileName(final Logger LOGGER, final Part part) {
 		final String partHeader = part.getHeader("content-disposition");
 		String fileName = null;
@@ -57,5 +67,42 @@ public class ControllerUtility {
 			} 
 		}
 		return fileName;
+	}
+
+	public String fileUpload(String path, HttpServletRequest request) {
+		String fileName = null;
+
+		DiskFileItemFactory fileFactory = new DiskFileItemFactory();
+		// Which is true? reqeust. or obj.??
+//		File fileDir = (File) obj.getServletContext().getAttribute(path + "_DIR_FILE");
+		File fileDir = new File(rootPath + File.separator + path);
+		fileFactory.setRepository(fileDir);
+
+		ServletFileUpload upload = new ServletFileUpload(fileFactory);
+		try {
+			List fileItems = upload.parseRequest(request);
+			Iterator fileItemIterator = fileItems.iterator();
+			while (fileItemIterator.hasNext()) {
+				FileItem fileItem = (FileItem) fileItemIterator.next();
+				
+				File file = new File(rootPath + File.separator + path + File.separator + fileItem.getName());
+				fileItem.write(file);
+				fileName = fileItem.getName();
+			}
+		} catch (FileUploadException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return fileName;
+	}
+
+	public void showAlertMessage(AbstractServlet obj, boolean success, String message, String locationAssign) {
+		obj.addViewObject("success", success);
+		obj.addViewObject("successMessage", message);
+		obj.addViewObject("locationAssign", locationAssign);
 	}
 }

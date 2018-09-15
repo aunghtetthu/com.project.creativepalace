@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 import com.creativepalace.controller.AbstractServlet;
 import com.creativepalace.controller.ControllerUtility;
 import com.creativepalace.db.StaffDB;
@@ -20,13 +22,21 @@ import com.creativepalace.model.Staff;
 @WebServlet("/custom/staff_register")
 @MultipartConfig
 public class StaffRegister extends AbstractServlet {
-	
+	private final static Logger LOGGER =
+			Logger.getLogger(StaffRegister.class.getCanonicalName());
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+		if(!isMultipart) {
+			System.out.println("There is no file upload.");
+		}
+		
 		boolean errorExistence;
 		String errorMessage;
 
+		ControllerUtility cu = new ControllerUtility();
 		StaffDB sdb = new StaffDB();
 		HttpSession session = request.getSession(true);
 
@@ -46,13 +56,9 @@ public class StaffRegister extends AbstractServlet {
 				if (password.equals(cPassword)) {
 					String sql = "SELECT * FROM staff WHERE staff_email='" + email + "'";
 					ArrayList<Staff> result = sdb.reteriveStaff(sql);
-					if (result == null) {
-						final String path = "/home/aunghtetthu/MyFile/Java Projects/CreativePalace/com.project.creativepalace/WebContent/custom/staff_photo/";
+					if (result == null) {						
+						final String path = "staff_photo";
 						final Part filePart = request.getPart("photo");
-						final Logger LOGGER = Logger.getLogger(StaffRegister.class.getCanonicalName());
-
-						ControllerUtility cu = new ControllerUtility();
-						String photoFile = "staff_photo/" + cu.uploadFile(LOGGER, path, filePart);
 
 						Staff s = new Staff();
 						s.setStaffName(request.getParameter("name"));
@@ -60,11 +66,13 @@ public class StaffRegister extends AbstractServlet {
 						s.setStaffPassword(password);
 						s.setStaffRole(request.getParameter("role"));
 						s.setStaffPhone(request.getParameter("phone"));
-						s.setStaffPhoto(photoFile);
-
-						sdb.createStaff(s);
+						s.setStaffPhoto(cu.uploadFile(LOGGER, path, filePart));
+						sdb.createStaff(s);						
+						
 						errorExistence = false;
 						errorMessage = "";
+						cu.showAlertMessage(this, true, "Your account has been registered successfully. Please log in.",
+								"staff_login");
 					} else {
 						errorExistence = true;
 						errorMessage = "'" + email
@@ -74,13 +82,15 @@ public class StaffRegister extends AbstractServlet {
 					errorExistence = true;
 					errorMessage = "'Password' and 'Confirm Password' are not same.";
 				}
+			} else {
+				cu.showAlertMessage(this, false, "", "");
 			}
-			
+
 			session.setAttribute("error", errorExistence);
 			session.setAttribute("errorMessage", errorMessage);
 			this.addViewObject("errorExistence", errorExistence);
 			this.addViewObject("errorMessage", errorMessage);
-			this.setHeader("staffHeader");
+			this.setHeader("staffPlainHeader");
 			this.showView(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

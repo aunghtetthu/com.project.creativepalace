@@ -18,16 +18,6 @@
 					<img src="#agkt{baseUrl}/assets/img/tick-512.png">
 				</div> <!-- .logo -->
 			</div> <!-- .col-4 .text-left -->
-			<div class="col-4 text-center">
-				<div class="menu-wrapper">
-					<ul>
-						<li><a href="#">Home</a></li>
-					</ul>
-				</div> <!-- .menu-wrapper -->
-			</div> <!-- .col-4 .text-center -->
-			<div class="col-4 text-right">
-				<a href="#" class="btn btn-success">Log out</a>
-			</div> <!-- .col-4 .text-right -->
 		</div> <!-- .row -->
 	</div> <!-- .container -->
 </header>
