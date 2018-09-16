@@ -26,7 +26,7 @@
 				</div> <!-- .menu-wrapper -->
 			</div> <!-- .col-4 .text-center -->
 			<div class="col-4 text-right">
-				<a href="#" class="btn btn-success">Log out</a>
+				<a href="logout" class="btn btn-success">Log out</a>
 			</div> <!-- .col-4 .text-right -->
 		</div> <!-- .row -->
 	</div> <!-- .container -->

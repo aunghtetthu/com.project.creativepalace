@@ -35,9 +35,11 @@
 <section id="categorized-section">
 	<div class="container">
 		<div class="text-center">
-			<h1 class="my-title">Your Tasks</h1>
+			<h1 class="my-title">Your Task</h1>
 		</div> <!-- .task-center -->
 		<div class="row">
+		
+		#if(#agkt{adminTask})
 			<div class="col-4">
 				<a href="#" class="category text-center">
 					<i class="fas fa-user-tie"></i>
@@ -68,18 +70,25 @@
 					<p class="my-header">Certificate</p>
 				</a>
 			</div> <!-- .col-4 -->
+		#endIf
+		
+		#if(#agkt{adminTeacherTask})
 			<div class="col-4">
 				<a href="#" class="category text-center">
 					<i class="fas fa-users"></i>
 					<p class="my-header">Discussion Forum</p>
 				</a>
 			</div> <!-- .col-4 -->
+		#endIf
+		
+		#if(#agkt{financeTask})
 			<div class="col-4">
 				<a href="#" class="category text-center">
 					<i class="far fa-credit-card"></i>
 					<p class="my-header">Payment</p>
 				</a>
 			</div> <!-- .col-4 -->
+		#endIf
 		</div> <!-- .row -->
 	</div> <!-- .container -->
 </section> <!-- #task-section -->
