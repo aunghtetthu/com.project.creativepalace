@@ -25,6 +25,10 @@ public class StaffLogin extends AbstractServlet {
 		StaffDB sdb = new StaffDB();
 		HttpSession session = request.getSession(true);
 		
+		if(session.getAttribute("staffObj") != null) {
+			response.sendRedirect("staff_home");
+		}
+		
 		if (session.isNew()) {
 			errorExistence = false;
 			errorMessage = "";

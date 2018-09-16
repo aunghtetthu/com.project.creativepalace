@@ -36,6 +36,10 @@ public class StaffRegister extends AbstractServlet {
 		ControllerUtility cu = new ControllerUtility();
 		StaffDB sdb = new StaffDB();
 		HttpSession session = request.getSession(true);
+		
+		if(session.getAttribute("staffObj") != null) {
+			response.sendRedirect("staff_home");
+		}
 
 		if (session.isNew()) {
 			errorExistence = false;
