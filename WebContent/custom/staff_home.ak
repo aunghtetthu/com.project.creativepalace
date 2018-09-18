@@ -41,7 +41,7 @@
 		
 		#if(#agkt{adminTask})
 			<div class="col-4">
-				<a href="#" class="category text-center">
+				<a href="staff_list" class="category text-center">
 					<i class="fas fa-user-tie"></i>
 					<p class="my-header">Staff List</p>
 				</a>

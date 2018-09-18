@@ -55,8 +55,7 @@ public class StaffRegister extends AbstractServlet {
 				String cPassword = request.getParameter("confirmPassword");
 				String email = request.getParameter("email");
 				if (password.equals(cPassword)) {
-					String sql = "SELECT * FROM staff WHERE staff_email='" + email + "'";
-					ArrayList<Staff> result = sdb.reteriveStaff(sql);
+					ArrayList<Staff> result = sdb.reteriveStaff("staff_email", email);
 					if (result == null) {						
 						final String path = "staff_photo";
 						final Part filePart = request.getPart("photo");

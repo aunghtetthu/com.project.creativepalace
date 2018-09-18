@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import org.apache.commons.fileupload.FileItem;
@@ -118,5 +119,23 @@ public class ControllerUtility {
 					+ request.getContextPath();
 		}
 		return baseUrl + File.separator + folder + File.separator + filePart;
+	}
+	
+	public boolean checkSession(HttpSession session, String sessionAttribute) {
+		if(session.getAttribute(sessionAttribute) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public String checkList(List list) {
+		String listCount = "0";
+		if(list == null) {
+			listCount = "0";
+		} else {
+			listCount = Integer.toString(list.size());
+		}
+		return listCount;
 	}
 }

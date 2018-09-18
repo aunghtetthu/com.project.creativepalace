@@ -28,11 +28,13 @@ public class StaffDB {
 		DBConnection.closeConnection(c);
 	}
 
-	public ArrayList<Staff> reteriveStaff(String sql) {
+	public ArrayList<Staff> reteriveStaff(String fieldName, String data) {
 		ArrayList<Staff> staffList = new ArrayList<Staff>();
 		Connection c = DBConnection.createConnection();
 		try {
+			String sql = "SELECT * FROM staff WHERE " + fieldName + "=?";
 			PreparedStatement stmt = c.prepareStatement(sql);
+			stmt.setString(1, data);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Staff s = new Staff();

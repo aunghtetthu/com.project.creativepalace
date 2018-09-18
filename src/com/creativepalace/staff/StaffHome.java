@@ -62,7 +62,6 @@ public class StaffHome extends AbstractServlet {
 					"You cannot access to 'Staff Home' page without your account. Firstly, please log in your account.");
 			response.sendRedirect("staff_login");
 		}
-		;
 	}
 
 	@Override
