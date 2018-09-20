@@ -38,7 +38,7 @@ public class StaffList extends AbstractServlet {
 				if (request.getParameter("btnSubmit") != null) {
 					fieldName = request.getParameter("searchType");
 					data = request.getParameter("searchKey");
-					List<Staff> resultList = sdb.reteriveStaff(fieldName, data);
+					List<Staff> resultList = sdb.retrieveStaff(fieldName, data);
 					resultCount = cu.checkList(resultList);
 					
 					if(resultList == null) {
@@ -59,9 +59,9 @@ public class StaffList extends AbstractServlet {
 					this.addViewObject("searchResult", true);
 				} else {
 //					ArrayList<Staff> adminList = sdb.reteriveStaff("staff_role", "admin");
-					List<Staff> adminList = sdb.reteriveStaff("staff_role", "admin");
-					List<Staff> financeList = sdb.reteriveStaff("staff_role", "finance-staff");
-					List<Staff> teacherList = sdb.reteriveStaff("staff_role", "teacher");
+					List<Staff> adminList = sdb.retrieveStaff("staff_role", "admin");
+					List<Staff> financeList = sdb.retrieveStaff("staff_role", "finance-staff");
+					List<Staff> teacherList = sdb.retrieveStaff("staff_role", "teacher");
 					
 					adminCount = cu.checkList(adminList);
 					financeCount = cu.checkList(financeList);

@@ -1,6 +1,7 @@
 package com.creativepalace.db;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.util.ArrayList;
 
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.creativepalace.controller.AbstractServlet;
+import com.creativepalace.model.Course;
+import com.creativepalace.model.Lecture;
 import com.creativepalace.model.Staff;
 
 @WebServlet("/testMe")
@@ -20,27 +23,28 @@ public class TestDB extends AbstractServlet {
 		// TODO Auto-generated method stub
 		
 		try {
-			StaffDB sdb = new StaffDB();
-//			Staff s = new Staff();
-//			s.setStaffName("Test Name");
-//			s.setStaffEmail("test email");
-//			s.setStaffPassword("1234");
-//			s.setStaffPhone("12345");
-//			s.setStaffPhoto("This is photo");
-//			s.setStaffRole("admin");
-//			sdb.createStaff(s);
-			String email = "kate@gmail.com";
-//			String sql = "SELECT * FROM staff WHERE staff_email='" + email + "'";
-//			ArrayList<Staff> result = sdb.reteriveStaff(sql);
 			
-			Staff s = sdb.getStaffByEmail(email);
-			if(s == null) {
-				System.out.println("This is null.");
-			} else {
-				System.out.println("This is not null.");
-			}
-			System.out.println(s.getStaffEmail());
-			System.out.println(s.getStaffPassword());
+//			LectureDB ldb = new LectureDB();
+//			Lecture l = new Lecture();
+//			l.setLectureTitle("Lecture Title");
+//			l.setLectureVideo("This is video.");
+//			l.setLectureDescription("This is description");
+//			l.setLecturePdf("This is pdf");
+//			l.setCourseID((long)1);
+//			
+//			ldb.createLecture(l);
+//			CourseDB cdb = new CourseDB();
+//			Course c = new Course();
+//			c.setCourseName("Test Name");
+//			c.setCourseDuration("4 weeks");
+//			c.setCourseInfo("This is Info.");
+//			c.setCourseSyllabus("This is syllabus");
+//			c.setCoursePrice(new BigDecimal(20000));
+//			c.setCourseCategory("application");
+//			c.setCourseCoverPhoto("This is file part");
+//			c.setStaffID((long) 1);
+//			cdb.createCourse(c);
+//			
 			this.showView(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -28,7 +28,7 @@ public class StaffDB {
 		DBConnection.closeConnection(c);
 	}
 
-	public ArrayList<Staff> reteriveStaff(String fieldName, String data) {
+	public ArrayList<Staff> retrieveStaff(String fieldName, String data) {
 		ArrayList<Staff> staffList = new ArrayList<Staff>();
 		Connection c = DBConnection.createConnection();
 		try {
@@ -53,6 +53,7 @@ public class StaffDB {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+		DBConnection.closeConnection(c);
 		return staffList == null || staffList.isEmpty() ? null : staffList;
 	}
 
