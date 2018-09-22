@@ -140,23 +140,31 @@ footer {
 ---------------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------------
-#error-message starts here
+#error-message, #success-message starts here
 ---------------------------------------------------------------------------- */
-#error-message .error-box {
-	border: 1px #FC361D solid;
+#error-message .error-box, #success-message .success-box {
 	border-radius: 10px;
-	box-shadow: 0 0 10px #FC361D;
-	color: #FC361D;
 	font-size: 16px;
-	/*font-weight: bold;*/
 	max-width: 500px;
 	min-height: 70px;
 	background-color: #FFFFFF;
 	margin: 30px auto 0;
 	padding: 10px;
 }
+
+#error-message .error-box {
+	border: 1px #FC361D solid;
+	box-shadow: 0 0 10px #FC361D;
+	color: #FC361D;
+}
+
+#success-message .success-box {
+	border: 1px #3AFF51 solid;
+	box-shadow: 0 0 10px #3AFF51;
+	color: #28a745;
+}
 /* ----------------------------------------------------------------------------
-#error-message ends here
+#error-message, #success-message ends here
 ---------------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------------

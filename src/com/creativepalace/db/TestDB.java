@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.creativepalace.controller.AbstractServlet;
 import com.creativepalace.model.Course;
@@ -23,6 +24,23 @@ public class TestDB extends AbstractServlet {
 		// TODO Auto-generated method stub
 		
 		try {
+			HttpSession session = request.getSession(true);
+			CourseDB cdb = new CourseDB();
+			Course resultCourse = cdb.getCourseByName("Test Name");
+			session.setAttribute("courseObj", resultCourse);
+			session.setAttribute("successBox", false);
+			session.setAttribute("lectureTitle", "");
+			session.setAttribute("error", false);
+			session.setAttribute("errorMessage", "");
+			
+//			LectureDB ldb = new LectureDB();
+//			Course c = (Course) session.getAttribute("courseObj");
+//			Lecture l = ldb.getLectureByTitle("Lecture Title", c.getCourseID());
+//			if(l.getLectureTitle() == null) {
+//				System.out.println("This lecture is new.");
+//			} else {
+//				System.out.println("Existing Lecture.");
+//			}
 			
 //			LectureDB ldb = new LectureDB();
 //			Lecture l = new Lecture();

@@ -64,7 +64,7 @@ public class CourseDB {
 	
 	public Course getCourseByName(String courseName) {
 		Course c = new Course();
-		String sql = "SELECT * FROM course WHERE course_id=?";
+		String sql = "SELECT * FROM course WHERE course_name=?";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);

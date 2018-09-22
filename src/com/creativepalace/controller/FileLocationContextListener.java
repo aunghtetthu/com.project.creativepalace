@@ -13,7 +13,7 @@ public class FileLocationContextListener implements ServletContextListener {
 		String rootPath = System.getProperty("catalina.home");
 		ServletContext ctx = servletContextEvent.getServletContext();
 		
-		String [] fileDirs = {"staffphoto.dir", "studentphoto.dir"};
+		String [] fileDirs = {"staffphoto.dir", "studentphoto.dir", "coursecoverphoto.dir"};
 		for(String fileDir: fileDirs) {
 			setFileAttribute(fileDir, rootPath, ctx);
 		}		

@@ -58,13 +58,14 @@ public class LectureDB {
 		return lectureList == null || lectureList.isEmpty() ? null : lectureList;
 	}
 
-	public Lecture getLectureByTitle(String title) {
+	public Lecture getLectureByTitle(String title, Long courseID) {
 		Lecture l = new Lecture();
-		String sql = "SELECT * FROM lecture WHERE lecture_title=?";
+		String sql = "SELECT * FROM lecture WHERE lecture_title=? AND course_id=?";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, title);
+			stmt.setLong(2, courseID);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				l.setLectureID(rs.getLong(1));

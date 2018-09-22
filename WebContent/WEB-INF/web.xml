@@ -21,6 +21,11 @@
    </context-param>
    
    <context-param>
+   		<param-name>coursecoverphoto.dir</param-name>
+      	<param-value>course_coverPhoto</param-value>
+   </context-param>
+   
+   <context-param>
     <param-name>tempfile.dir</param-name>
     <param-value>tmpfiles</param-value>
   </context-param>
