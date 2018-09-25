@@ -17,30 +17,42 @@
 </section> <!-- #navigation-section -->
 
 #if(#agkt{successBox})
-<section id="success-message">
+<section id="message-section">
 	<div class="container">
-		<div class="success-box">
-			'#agkt{lectureTitle}' has been uploaded successfully. Please continue upload if there are still more lectures for the course. 
-		</div>
+		<div class="message-box success-box">
+			<div class="message-icon success-icon-bg">
+				<i class="far fa-check-circle"></i>
+			</div>
+			<div class="message-text">
+				<span class="font-weight-bold">Done!</span> '#agkt{lectureTitle}' has been uploaded successfully. Please continue upload if there are still more lectures for the course. 
+			</div>
+			<div class="clearfix"></div>
+		</div> <!-- .message-box -->
 	</div> <!-- .container -->
-</section> <!-- #success-message -->
+</section> <!-- #message-section -->
 #endIf
 
 #if(#agkt{error})
-<section id="error-message">
+<section id="message-section">
 	<div class="container">
-		<div class="error-box">
-			<span class="font-weight-bold">Error:</span> #agkt{errorMessage}
-		</div>
+		<div class="message-box error-box">
+			<div class="message-icon error-icon-bg">
+				<i class="far fa-times-circle"></i>
+			</div>
+			<div class="message-text">
+				<span class="font-weight-bold">Error:</span> #agkt{errorMessage}
+			</div>
+			<div class="clearfix"></div>
+		</div> <!-- .message-box -->
 	</div> <!-- .container -->
-</section> <!-- #error-message -->
+</section> <!-- #message-section -->
 #endIf
 
 <section id="form-section">
 	<div class="container">
 		<div class="form-wrapper">
 			<div class="question-text">
-				<h2>No more lecture to upload? <a href="#">Go 'Course' page.</a></h2>
+				<h2>No more lecture to upload? <a href="course_list">Go 'Course' page.</a></h2>
 			</div> <!-- .question-text -->
 			<form action="lecture_upload" method="POST" enctype="multipart/form-data">
 				<div class="form-title">

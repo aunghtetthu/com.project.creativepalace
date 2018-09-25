@@ -23,7 +23,7 @@
 			        <option value="staff_name">Name</option>
 			        <option value="staff_email">Email</option>
 			    </select>
-		        <input name="searchKey" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
+		        <input name="searchKey" class="form-control mr-sm-2" type="search" placeholder="Search staff" aria-label="Search" required>
 		        <button name="btnSubmit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		        <a class="btn btn-outline-success my-2 my-sm-0" href="staff_list">Show All</a>
 		    </form>

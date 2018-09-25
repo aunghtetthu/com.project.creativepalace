@@ -1,11 +1,17 @@
 #if(#agkt{errorExistence})
-<section id="error-message">
+<section id="message-section">
 	<div class="container">
-		<div class="error-box">
-			<span class="font-weight-bold">Error:</span> #agkt{errorMessage}
-		</div>
+		<div class="message-box error-box">
+			<div class="message-icon error-icon-bg">
+				<i class="far fa-times-circle"></i>
+			</div>
+			<div class="message-text">
+				<span class="font-weight-bold">Error:</span> #agkt{errorMessage}
+			</div>
+			<div class="clearfix"></div>
+		</div> <!-- .message-box -->
 	</div> <!-- .container -->
-</section> <!-- #error-message -->
+</section> <!-- #message-section -->
 #endIf
 
 <section id="form-section">
