@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,14 +26,25 @@ public class TestDB extends AbstractServlet {
 		// TODO Auto-generated method stub
 		
 		try {
-			HttpSession session = request.getSession(true);
 			CourseDB cdb = new CourseDB();
-			Course resultCourse = cdb.getCourseByName("Test Name");
-			session.setAttribute("courseObj", resultCourse);
-			session.setAttribute("successBox", false);
-			session.setAttribute("lectureTitle", "");
-			session.setAttribute("error", false);
-			session.setAttribute("errorMessage", "");
+			List<Course> cList = cdb.retrieveCourse("active");
+			Iterator<Course> cIterator = cList.iterator();
+			while(cIterator.hasNext()) {
+				Course c = cIterator.next();
+				System.out.println(c.getCourseName());
+			}
+			
+//			Course c = cdb.getCourseByName("Test Name");
+//			System.out.println(c.getCourseDuration());
+			
+//			HttpSession session = request.getSession(true);
+//			CourseDB cdb = new CourseDB();
+//			Course resultCourse = cdb.getCourseByName("Test Name");
+//			session.setAttribute("courseObj", resultCourse);
+//			session.setAttribute("successBox", false);
+//			session.setAttribute("lectureTitle", "");
+//			session.setAttribute("error", false);
+//			session.setAttribute("errorMessage", "");
 			
 //			LectureDB ldb = new LectureDB();
 //			Course c = (Course) session.getAttribute("courseObj");

@@ -86,7 +86,7 @@ public class CourseUpload extends AbstractServlet {
 
 				error = false;
 				errorMessage = "";
-				session.setAttribute("courseObj", resultCourse);
+				session.setAttribute("uploadCourse", resultCourse);
 				session.setAttribute("successBox", false);
 				session.setAttribute("lectureTitle", "");
 				cu.showAlertMessage(this, true, "Information of " + resultCourse.getCourseName()

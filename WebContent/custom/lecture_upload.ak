@@ -52,7 +52,7 @@
 	<div class="container">
 		<div class="form-wrapper">
 			<div class="question-text">
-				<h2>No more lecture to upload? <a href="course_list">Go 'Course' page.</a></h2>
+				<h2>No more lecture to upload? <a href="course_all">Go 'Course' page.</a></h2>
 			</div> <!-- .question-text -->
 			<form action="lecture_upload" method="POST" enctype="multipart/form-data">
 				<div class="form-title">

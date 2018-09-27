@@ -11,6 +11,7 @@ public class Course {
 	private BigDecimal coursePrice;
 	private String courseCategory;
 	private String courseCoverPhoto;
+	private String courseStatus;
 	private Long staffID;
 
 	public String getCourseCoverPhoto() {
@@ -83,5 +84,13 @@ public class Course {
 
 	public void setStaffID(Long staffID) {
 		this.staffID = staffID;
+	}
+
+	public String getCourseStatus() {
+		return courseStatus;
+	}
+	
+	public void setCourseStatus(String courseStatus) {
+		this.courseStatus = courseStatus;
 	}
 }

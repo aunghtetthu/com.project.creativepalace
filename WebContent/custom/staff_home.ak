@@ -47,7 +47,7 @@
 				</a>
 			</div> <!-- .col-4 -->
 			<div class="col-4">
-				<a href="course_list" class="category text-center">
+				<a href="course_all" class="category text-center">
 					<i class="fas fa-book"></i>
 					<p class="my-header">Courses</p>
 				</a>

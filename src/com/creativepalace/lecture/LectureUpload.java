@@ -28,9 +28,9 @@ public class LectureUpload extends AbstractServlet {
 		HttpSession session = request.getSession(true);
 
 		if (session.getAttribute("staffObj") != null) {
-			if (session.getAttribute("courseObj") != null) {
+			if (session.getAttribute("uploadCourse") != null) {
 				try {
-					Course c = (Course) session.getAttribute("courseObj");
+					Course c = (Course) session.getAttribute("uploadCourse");
 
 					this.addViewObject("courseName", c.getCourseName());
 					this.addViewObject("successBox", session.getAttribute("successBox"));
@@ -64,8 +64,8 @@ public class LectureUpload extends AbstractServlet {
 
 		if (request.getParameter("btnSubmit") != null) {
 			String title = request.getParameter("title");
-			Course c = (Course) session.getAttribute("courseObj");
-			System.out.println("Course ID:" + c.getCourseID());
+			Course c = (Course) session.getAttribute("uploadCourse");
+			
 			LectureDB ldb = new LectureDB();
 			Lecture result = ldb.getLectureByTitle(title, c.getCourseID());
 			if (result.getLectureTitle() == null) {

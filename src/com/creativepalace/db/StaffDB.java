@@ -83,4 +83,31 @@ public class StaffDB {
 		DBConnection.closeConnection(c);
 		return s;
 	}
+	
+	public Staff getStaffById(Long staffID) {
+		Staff s = new Staff();
+		String sql = "SELECT * FROM staff WHERE staff_id=?";
+		Connection c = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = c.prepareStatement(sql);
+			stmt.setLong(1, staffID);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				s.setStaffID(rs.getLong(1));
+				s.setStaffName(rs.getString(2));
+				s.setStaffEmail(rs.getString(3));
+				s.setStaffPassword(rs.getString(4));
+				s.setStaffRole(rs.getString(5));
+				s.setStaffPhone(rs.getString(6));
+				s.setStaffPhoto(rs.getString(7));
+			}
+			rs.close();
+			stmt.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		DBConnection.closeConnection(c);
+		return s;
+	}
 }

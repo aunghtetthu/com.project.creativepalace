@@ -10,7 +10,7 @@ import com.creativepalace.model.Course;
 
 public class CourseDB {
 	public void createCourse(Course c) {
-		String sql = "INSERT INTO course (course_name, course_duration, course_info, course_syllabus, course_price, course_category, course_coverphoto, staff_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO course (course_name, course_duration, course_info, course_syllabus, course_price, course_category, course_coverphoto, course_status, staff_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -21,7 +21,8 @@ public class CourseDB {
 			stmt.setBigDecimal(5, c.getCoursePrice());
 			stmt.setString(6, c.getCourseCategory());
 			stmt.setString(7, c.getCourseCoverPhoto());
-			stmt.setLong(8, c.getStaffID());
+			stmt.setString(8, "active");
+			stmt.setLong(9, c.getStaffID());
 			stmt.executeUpdate();
 			stmt.close();
 		} catch (SQLException e) {
@@ -48,7 +49,8 @@ public class CourseDB {
 				c.setCoursePrice(rs.getBigDecimal(6));
 				c.setCourseCategory(rs.getString(7));
 				c.setCourseCoverPhoto(rs.getString(8));
-				c.setStaffID((long)rs.getInt(9));
+				c.setCourseStatus(rs.getString(9));
+				c.setStaffID((long)rs.getInt(10));
 			}
 			
 			rs.close();
@@ -64,7 +66,7 @@ public class CourseDB {
 	
 	public Course getCourseByName(String courseName) {
 		Course c = new Course();
-		String sql = "SELECT * FROM course WHERE course_name=?";
+		String sql = "SELECT * FROM course WHERE course_name=? AND course_status='active'";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -79,7 +81,8 @@ public class CourseDB {
 				c.setCoursePrice(rs.getBigDecimal(6));
 				c.setCourseCategory(rs.getString(7));
 				c.setCourseCoverPhoto(rs.getString(8));
-				c.setStaffID((long)rs.getInt(9));
+				c.setCourseStatus(rs.getString(9));
+				c.setStaffID((long)rs.getInt(10));
 			}
 			
 			rs.close();
@@ -93,12 +96,13 @@ public class CourseDB {
 		return c;
 	}
 	
-	public ArrayList<Course> retrieveCourse() {
+	public ArrayList<Course> retrieveCourse(String courseStatus) {
 		ArrayList<Course> courseList = new ArrayList<Course>();
-		String sql = "SELECT * FROM course";
+		String sql = "SELECT * FROM course WHERE course_status=?";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, courseStatus);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				Course c = new Course();
@@ -110,7 +114,8 @@ public class CourseDB {
 				c.setCoursePrice(rs.getBigDecimal(6));
 				c.setCourseCategory(rs.getString(7));
 				c.setCourseCoverPhoto(rs.getString(8));
-				c.setStaffID((long)rs.getInt(9));
+				c.setCourseStatus(rs.getString(9));
+				c.setStaffID((long)rs.getInt(10));
 				courseList.add(c);
 			}
 			
@@ -122,16 +127,53 @@ public class CourseDB {
 		}
 		
 		DBConnection.closeConnection(conn);
-		return courseList==null || courseList.isEmpty() ? null : courseList;
+//		return courseList==null || courseList.isEmpty() ? null : courseList;
+		return courseList;
 	}
 	
-	public ArrayList<Course> retrieveCourseByData(String fieldName, String data) {
+	public ArrayList<Course> retrieveCourseByData(String fieldName, String data, String courseStatus) {
+		ArrayList<Course> courseList = new ArrayList<Course>();
+		String sql = "SELECT * FROM course WHERE " + fieldName + "=? AND course_status=?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, data);
+			stmt.setString(2, courseStatus);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Course c = new Course();
+				c.setCourseID(rs.getLong(1));
+				c.setCourseName(rs.getString(2));
+				c.setCourseDuration(rs.getString(3));
+				c.setCourseInfo(rs.getString(4));
+				c.setCourseSyllabus(rs.getString(5));
+				c.setCoursePrice(rs.getBigDecimal(6));
+				c.setCourseCategory(rs.getString(7));
+				c.setCourseCoverPhoto(rs.getString(8));
+				c.setCourseStatus(rs.getString(9));
+				c.setStaffID((long)rs.getInt(10));
+				courseList.add(c);
+			}
+			
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DBConnection.closeConnection(conn);
+//		return courseList==null || courseList.isEmpty() ? null : courseList;
+		return courseList;
+	}
+	
+	public ArrayList<Course> searchCourse(String fieldName, String searchKey) {
 		ArrayList<Course> courseList = new ArrayList<Course>();
 		String sql = "SELECT * FROM course WHERE " + fieldName + "=?";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, data);
+			stmt.setString(1, searchKey);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				Course c = new Course();
@@ -143,7 +185,8 @@ public class CourseDB {
 				c.setCoursePrice(rs.getBigDecimal(6));
 				c.setCourseCategory(rs.getString(7));
 				c.setCourseCoverPhoto(rs.getString(8));
-				c.setStaffID((long)rs.getInt(9));
+				c.setCourseStatus(rs.getString(9));
+				c.setStaffID((long)rs.getInt(10));
 				courseList.add(c);
 			}
 			
@@ -155,6 +198,7 @@ public class CourseDB {
 		}
 		
 		DBConnection.closeConnection(conn);
-		return courseList==null || courseList.isEmpty() ? null : courseList;
+//		return courseList==null || courseList.isEmpty() ? null : courseList;
+		return courseList;
 	}
 }
