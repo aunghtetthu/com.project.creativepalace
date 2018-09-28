@@ -29,13 +29,13 @@ public class LectureDB {
 		DBConnection.closeConnection(conn);
 	}
 
-	public ArrayList<Lecture> retrieveLecture(String courseID) {
+	public ArrayList<Lecture> retrieveLecture(Long courseID) {
 		ArrayList<Lecture> lectureList = new ArrayList<Lecture>();
 		String sql = "SELECT * FROM lecture WHERE course_id=?";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, courseID);
+			stmt.setLong(1, courseID);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Lecture l = new Lecture();
@@ -55,7 +55,8 @@ public class LectureDB {
 			e.printStackTrace();
 		}
 		DBConnection.closeConnection(conn);
-		return lectureList == null || lectureList.isEmpty() ? null : lectureList;
+//		return lectureList == null || lectureList.isEmpty() ? null : lectureList;
+		return lectureList;
 	}
 
 	public Lecture getLectureByTitle(String title, Long courseID) {
