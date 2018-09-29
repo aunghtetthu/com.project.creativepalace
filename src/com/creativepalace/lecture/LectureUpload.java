@@ -26,7 +26,11 @@ public class LectureUpload extends AbstractServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true);
-
+		
+		if(request.getParameter("btnSubmit") == null) {
+			session.setAttribute("successBox", false);
+		}
+		
 		if (session.getAttribute("staffObj") != null) {
 			if (session.getAttribute("uploadCourse") != null) {
 				try {
@@ -79,9 +83,9 @@ public class LectureUpload extends AbstractServlet {
 				
 				Lecture l = new Lecture();
 				l.setLectureTitle(title);
-				l.setLectureVideo(cu.uploadFile(LOGGER, pdfDestination, pdfPart, request));
+				l.setLectureVideo(cu.uploadFile(LOGGER, videoDestination, videoPart, request));
 				l.setLectureDescription(request.getParameter("description"));
-				l.setLecturePdf(cu.uploadFile(LOGGER, videoDestination, videoPart, request));
+				l.setLecturePdf(cu.uploadFile(LOGGER, pdfDestination, pdfPart, request));
 				l.setCourseID(c.getCourseID());
 				ldb.createLecture(l);
 				

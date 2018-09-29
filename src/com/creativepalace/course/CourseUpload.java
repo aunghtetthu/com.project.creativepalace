@@ -89,13 +89,13 @@ public class CourseUpload extends AbstractServlet {
 				session.setAttribute("uploadCourse", resultCourse);
 				session.setAttribute("successBox", false);
 				session.setAttribute("lectureTitle", "");
-				cu.showAlertMessage(this, true, "Information of " + resultCourse.getCourseName()
-						+ " has been uploaded successfully. Please continue upload lectures.", "lecture_upload");
+				cu.showAlertMessage(this, true, "Information of '" + resultCourse.getCourseName()
+						+ "' course has been uploaded successfully. Please continue upload lectures.", "lecture_upload");
 
 			} else {
 				error = true;
 				errorMessage = "'" + courseName
-						+ "' is  the name of existing course. Please try again with a different course name.";
+						+ "' is  the name of existing active course. Please try again with a different course name.";
 			}
 
 			session.setAttribute("error", error);
