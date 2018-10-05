@@ -32,6 +32,32 @@ public class CourseDB {
 		DBConnection.closeConnection(conn);
 	}
 	
+	public void updateCourse(Course c) {
+		String sql = "UPDATE course SET"
+				+ " course_duration=?,"
+				+ " course_info=?,"
+				+ " course_syllabus=?,"
+				+ " course_price=?,"
+				+ " course_status=?"
+				+ " WHERE course_id=?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, c.getCourseDuration());
+			stmt.setString(2, c.getCourseInfo());
+			stmt.setString(3, c.getCourseSyllabus());
+			stmt.setBigDecimal(4, c.getCoursePrice());
+			stmt.setString(5, c.getCourseStatus());
+			stmt.setLong(6, c.getCourseID());
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DBConnection.closeConnection(conn);
+	}
+	
 	public Course getCourseByID(Long id) {
 		Course c = new Course();
 		String sql = "SELECT * FROM course WHERE course_id=?";
@@ -201,4 +227,6 @@ public class CourseDB {
 //		return courseList==null || courseList.isEmpty() ? null : courseList;
 		return courseList;
 	}
+	
+	
 }

@@ -36,6 +36,7 @@ public class LectureUpload extends AbstractServlet {
 				try {
 					Course c = (Course) session.getAttribute("uploadCourse");
 
+					this.addViewObject("courseID", c.getCourseID());
 					this.addViewObject("courseName", c.getCourseName());
 					this.addViewObject("successBox", session.getAttribute("successBox"));
 					this.addViewObject("lectureTitle", session.getAttribute("lectureTitle"));

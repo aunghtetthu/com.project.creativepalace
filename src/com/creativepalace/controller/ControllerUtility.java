@@ -75,8 +75,6 @@ public class ControllerUtility {
 		String fileName = null;
 
 		DiskFileItemFactory fileFactory = new DiskFileItemFactory();
-		// Which is true? reqeust. or obj.??
-//		File fileDir = (File) obj.getServletContext().getAttribute(path + "_DIR_FILE");
 		File fileDir = new File(rootPath + File.separator + path);
 		fileFactory.setRepository(fileDir);
 

@@ -28,6 +28,23 @@ public class LectureDB {
 
 		DBConnection.closeConnection(conn);
 	}
+	
+	public void updateLecture(Lecture l) {
+		String sql = "UPDATE lecture SET lecture_description=? WHERE lecture_id=?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, l.getLectureDescription());
+			stmt.setLong(2, l.getLectureID());
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DBConnection.closeConnection(conn);
+	}
 
 	public ArrayList<Lecture> retrieveLecture(Long courseID) {
 		ArrayList<Lecture> lectureList = new ArrayList<Lecture>();

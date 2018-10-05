@@ -81,21 +81,19 @@ public class CourseUpload extends AbstractServlet {
 				cdb.createCourse(c);
 
 				Course resultCourse = cdb.getCourseByName(courseName);
-				System.out.println(resultCourse.getCourseID());
-				System.out.println(resultCourse.getCourseName());
 
 				error = false;
 				errorMessage = "";
 				session.setAttribute("uploadCourse", resultCourse);
 				session.setAttribute("successBox", false);
 				session.setAttribute("lectureTitle", "");
-				cu.showAlertMessage(this, true, "Information of '" + resultCourse.getCourseName()
-						+ "' course has been uploaded successfully. Please continue upload lectures.", "lecture_upload");
+				cu.showAlertMessage(this, true, "Information of " + resultCourse.getCourseName()
+						+ " course has been uploaded successfully. Please continue upload lectures.", "lecture_upload");
 
 			} else {
 				error = true;
 				errorMessage = "'" + courseName
-						+ "' is  the name of existing active course. Please try again with a different course name.";
+						+ "' is the name of existing active course. Please try again with a different course name.";
 			}
 
 			session.setAttribute("error", error);
