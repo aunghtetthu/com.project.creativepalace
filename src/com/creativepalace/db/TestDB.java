@@ -28,9 +28,7 @@ public class TestDB extends AbstractServlet {
 		try {
 			Lecture l = new Lecture();
 			LectureDB ldb = new LectureDB();
-			l.setLectureDescription("Explore your code using natural language. Explore your code using natural language");
-			l.setLectureID(Long.parseLong("1"));
-			ldb.updateLecture(l);
+//			ldb.deleteLecture(Long.parseLong("1"));
 			
 //			Course c = new Course();
 //			CourseDB cdb = new CourseDB();

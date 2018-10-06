@@ -130,4 +130,20 @@ public class LectureDB {
 		DBConnection.closeConnection(conn);
 		return l;
 	}
+	
+	public void deleteLecture(Long lectureID) {
+		String sql = "DELETE FROM lecture WHERE lecture_id=?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setLong(1, lectureID);
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DBConnection.closeConnection(conn);
+	}
 }
