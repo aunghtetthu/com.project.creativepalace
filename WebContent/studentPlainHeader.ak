@@ -15,19 +15,9 @@
 		<div class="row">
 			<div class="col-4 text-left">
 				<div class="logo">
-					<img src="#agkt{baseUrl}/assets/img/logo.png">
+					<a href="index.html"><img src="#agkt{baseUrl}/assets/img/logo.png"></a>
 				</div> <!-- .logo -->
 			</div> <!-- .col-4 .text-left -->
-			<div class="col-4 text-center">
-				<div class="menu-wrapper">
-					<ul>
-						<li><a href="staff_home">Home</a></li>
-					</ul>
-				</div> <!-- .menu-wrapper -->
-			</div> <!-- .col-4 .text-center -->
-			<div class="col-4 text-right">
-				<a href="../logout" class="btn btn-success">Log out</a>
-			</div> <!-- .col-4 .text-right -->
 		</div> <!-- .row -->
 	</div> <!-- .container -->
 </header>

@@ -26,7 +26,12 @@
    </context-param>
    
    <context-param>
-    <param-name>tempfile.dir</param-name>
-    <param-value>tmpfiles</param-value>
-  </context-param>
+   		<param-name>lecturepdf.dir</param-name>
+      	<param-value>lecture_pdf</param-value>
+   </context-param>
+   
+   <context-param>
+   		<param-name>lecturevideo.dir</param-name>
+      	<param-value>lecture_video</param-value>
+   </context-param>
 </web-app>

@@ -1,4 +1,4 @@
-package com.creativepalace.staff;
+package com.creativepalace.student;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,30 +14,30 @@ import javax.servlet.http.Part;
 
 import com.creativepalace.controller.AbstractServlet;
 import com.creativepalace.controller.ControllerUtility;
-import com.creativepalace.db.StaffDB;
-import com.creativepalace.model.Staff;
+import com.creativepalace.db.StudentDB;
+import com.creativepalace.model.Student;
 
-@WebServlet("/custom/staff_register")
+@WebServlet("/user/register")
 @MultipartConfig
-public class StaffRegister extends AbstractServlet {
+public class Register extends AbstractServlet {
 	private ControllerUtility cu = new ControllerUtility();
-	private final static Logger LOGGER = Logger.getLogger(StaffRegister.class.getCanonicalName());
-
+	private final static Logger LOGGER = Logger.getLogger(Register.class.getCanonicalName());
+	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true);
-		
-		if (session.getAttribute("staffObj") != null) {
-			response.sendRedirect("staff_home");
+
+		if (session.getAttribute("studentObj") != null) {
+			response.sendRedirect("index");
 		} else {
 			if (session.isNew()) {
 				session.setAttribute("error", false);
 				session.setAttribute("errorMessage", "");
 			}
-			
+
 			if (request.getParameter("btnSubmit") != null && (boolean) session.getAttribute("error") == false) {
-				cu.showAlertMessage(this, true, "Your account has been registered successfully. Please log in.", "staff_login");
+				cu.showAlertMessage(this, true, "Your account has been registered successfully. Please log in.", "login");
 			} else {
 				cu.showAlertMessage(this, false, "", "");
 			}
@@ -45,7 +45,7 @@ public class StaffRegister extends AbstractServlet {
 			try {
 				this.addViewObject("error", session.getAttribute("error"));
 				this.addViewObject("errorMessage", session.getAttribute("errorMessage"));
-				this.setHeader("staffPlainHeader");
+				this.setHeader("studentPlainHeader");
 				this.showView(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -62,25 +62,28 @@ public class StaffRegister extends AbstractServlet {
 		HttpSession session = request.getSession(true);
 
 		String password = request.getParameter("password");
-		String cPassword = request.getParameter("confirmPassword");
+		String cPassword = request.getParameter("confrimPassword");
 		String email = request.getParameter("email");
 		if (password.equals(cPassword)) {
-			StaffDB sdb = new StaffDB();
-			ArrayList<Staff> result = sdb.retrieveStaff("staff_email", email);
-			
-			if (result == null) {
-				final String path = "staff_photo";
-				final Part filePart = request.getPart("photo");
+			StudentDB sdb = new StudentDB();
+			ArrayList<Student> studentList = sdb.retrieveStudent("student_email", email);
 
-				Staff s = new Staff();
-				s.setStaffName(request.getParameter("name"));
-				s.setStaffEmail(email);
-				s.setStaffPassword(password);
-				s.setStaffRole(request.getParameter("role"));
-				s.setStaffPhone(request.getParameter("phone"));
-				s.setStaffPhoto(cu.uploadFile(LOGGER, path, filePart, request));
-				sdb.createStaff(s);
-
+			if (studentList == null) {
+				final String PATH = "student_photo";
+				final Part FILEPART = request.getPart("photo");
+				
+				Student s = new Student();
+				s.setStudentName(request.getParameter("name"));
+				s.setStudentEmail(email);
+				s.setStudentPassword(password);
+				s.setStudentPhone(request.getParameter("phoneNum"));
+				s.setStudentPhoto(cu.uploadFile(LOGGER, PATH, FILEPART, request));
+				s.setStudentHome(request.getParameter("homeno"));
+				s.setStudentStreet(request.getParameter("street"));
+				s.setStudentTownship(request.getParameter("township"));
+				s.setStudentCity(request.getParameter("city"));
+				sdb.createStudent(s);
+				
 				error = false;
 				errorMessage = "";
 			} else {
@@ -91,7 +94,7 @@ public class StaffRegister extends AbstractServlet {
 			error = true;
 			errorMessage = "'Password' and 'Confirm Password' are not same.";
 		}
-		
+
 		session.setAttribute("error", error);
 		session.setAttribute("errorMessage", errorMessage);
 		doGet(request, response);

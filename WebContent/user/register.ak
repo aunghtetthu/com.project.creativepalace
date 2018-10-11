@@ -18,11 +18,11 @@
 	<div class="container">
 		<div class="form-wrapper">
 			<div class="question-text">
-				<h2>Already have an account? <a href="staff_login">Sign in.</a></h2>
+				<h2>Already have an account? <a href="login">Log in.</a></h2>
 			</div> <!-- .question-text -->
-			<form action="staff_register" method="POST" enctype="multipart/form-data">
+			<form action="register" method="POST" enctype="multipart/form-data">
 				<div class="form-title">
-					Staff Register Form
+					Student Register Form
 				</div>
 				<div class="form-group">
 					<label>Name:</label>
@@ -34,15 +34,14 @@
 				</div>
 				<div class="form-group">
 					<label>Phone Number:</label>
-					<input type="text" name="phone" class="form-control" placeholder="Enter your phone number:" required/>
+					<input type="text" name="phoneNum" class="form-control" placeholder="Enter your phone number:" required/>
 				</div>
-				<div class="form-group"> <!-- ###need to change### -->
-					<label>Role:</label>
-					<select name="role" class="form-control">
-					    <option value="admin">Admin</option>
-					    <option value="finance-staff">Finance Staff</option>
-					    <option value="teacher">Teacher</option>
-				    </select>
+				<div class="form-group address-input">
+					<label>Address:</label>
+					<input type="text" name="homeno" class="form-control first" placeholder="Enter your home number:" required/>
+					<input type="text" name="street" class="form-control" placeholder="Enter your street:" required/>
+					<input type="text" name="township" class="form-control" placeholder="Enter your township:" required/>
+					<input type="text" name="city" class="form-control" placeholder="Enter your city:" required/>
 				</div>
 				<div class="form-group">
 					<label>Password:</label>
@@ -50,7 +49,7 @@
 				</div>
 				<div class="form-group">
 					<label>Confirm Password:</label>
-					<input type="password" name="confirmPassword" class="form-control" placeholder="Re-enter password" required/>
+					<input type="password" name="confrimPassword" class="form-control" placeholder="Re-enter password" required/>
 				</div>
 				<div class="form-group">
 					<label>Profile Photo:</label>

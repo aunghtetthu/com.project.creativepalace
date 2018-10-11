@@ -17,6 +17,7 @@ import com.creativepalace.controller.AbstractServlet;
 import com.creativepalace.model.Course;
 import com.creativepalace.model.Lecture;
 import com.creativepalace.model.Staff;
+import com.creativepalace.model.Student;
 
 @WebServlet("/testMe")
 public class TestDB extends AbstractServlet {
@@ -26,8 +27,30 @@ public class TestDB extends AbstractServlet {
 		// TODO Auto-generated method stub
 
 		try {
-			Lecture l = new Lecture();
-			LectureDB ldb = new LectureDB();
+//			StudentDB sdb = new StudentDB();
+//			ArrayList<Student> sList = sdb.retrieveStudent("student_email", "Test Email");
+//			Iterator<Student> si = sList.iterator();
+//			while(si.hasNext()) {
+//				Student s = si.next();
+//				System.out.println(s.getStudentName());
+//			}
+			
+//			Student s = new Student();
+//			s.setStudentName("Test Name");
+//			s.setStudentEmail("Test Email");
+//			s.setStudentPassword("123345");
+//			s.setStudentPhone("12345");
+//			s.setStudentPhoto("Test Photo");
+//			s.setStudentHome("My Home");
+//			s.setStudentStreet("My Street");
+//			s.setStudentTownship("My Town");
+//			s.setStudentCity("My City");
+//			
+//			StudentDB sdb = new StudentDB();
+//			sdb.createStudent(s);
+			
+//			Lecture l = new Lecture();
+//			LectureDB ldb = new LectureDB();
 //			ldb.deleteLecture(Long.parseLong("1"));
 			
 //			Course c = new Course();

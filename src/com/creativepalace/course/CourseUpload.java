@@ -23,15 +23,15 @@ import com.mysql.cj.Session;
 @MultipartConfig
 public class CourseUpload extends AbstractServlet {
 	private final static Logger LOGGER = Logger.getLogger(CourseUpload.class.getCanonicalName());
+	private ControllerUtility cu = new ControllerUtility();
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true);
-		ControllerUtility cu = new ControllerUtility();
 
 		if (session.getAttribute("staffObj") != null) {
-			if(request.getParameter("btnSubmit") == null) {
+			if (request.getParameter("btnSubmit") == null) {
 				cu.showAlertMessage(this, false, "", "");
 			}
 			try {
@@ -58,48 +58,47 @@ public class CourseUpload extends AbstractServlet {
 		String errorMessage;
 		HttpSession session = request.getSession(true);
 
-		if (request.getParameter("btnSubmit") != null) {
-			String courseName = request.getParameter("name");
-			CourseDB cdb = new CourseDB();
-			Course result = cdb.getCourseByName(courseName);
-			if (result.getCourseName() == null) {
-				final String destination = "course_coverPhoto";
-				final Part filePart = request.getPart("photo");
+		String courseName = request.getParameter("name");
+		CourseDB cdb = new CourseDB();
+		Course result = cdb.getCourseByName(courseName);
+		if (result.getCourseName() == null) {
+			final String destination = "course_coverPhoto";
+			final Part filePart = request.getPart("photo");
+			
+			Staff s = (Staff) session.getAttribute("staffObj");
+			Course c = new Course();
+			
+			c.setCourseName(courseName);
+			c.setCourseDuration(request.getParameter("duration"));
+			c.setCourseInfo(request.getParameter("description"));
+			c.setCourseSyllabus(request.getParameter("syllabus"));
+			c.setCoursePrice(new BigDecimal(request.getParameter("price")));
+			c.setCourseCategory(request.getParameter("category"));
+			c.setCourseCoverPhoto(cu.uploadFile(LOGGER, destination, filePart, request));
+			c.setStaffID(s.getStaffID());
+			cdb.createCourse(c);
 
-				ControllerUtility cu = new ControllerUtility();
-				Staff s = (Staff) session.getAttribute("staffObj");
+			Course resultCourse = cdb.getCourseByName(courseName);
 
-				Course c = new Course();
-				c.setCourseName(courseName);
-				c.setCourseDuration(request.getParameter("duration"));
-				c.setCourseInfo(request.getParameter("description"));
-				c.setCourseSyllabus(request.getParameter("syllabus"));
-				c.setCoursePrice(new BigDecimal(request.getParameter("price")));
-				c.setCourseCategory(request.getParameter("category"));
-				c.setCourseCoverPhoto(cu.uploadFile(LOGGER, destination, filePart, request));
-				c.setStaffID(s.getStaffID());
-				cdb.createCourse(c);
+			error = false;
+			errorMessage = "";
+			session.setAttribute("uploadCourse", resultCourse);
+			session.setAttribute("successBox", false);
+			session.setAttribute("lectureTitle", "");
+			cu.showAlertMessage(this, true,
+					"Information of " + resultCourse.getCourseName()
+							+ " course has been uploaded successfully. Please continue upload lectures.",
+					"lecture_upload");
 
-				Course resultCourse = cdb.getCourseByName(courseName);
-
-				error = false;
-				errorMessage = "";
-				session.setAttribute("uploadCourse", resultCourse);
-				session.setAttribute("successBox", false);
-				session.setAttribute("lectureTitle", "");
-				cu.showAlertMessage(this, true, "Information of " + resultCourse.getCourseName()
-						+ " course has been uploaded successfully. Please continue upload lectures.", "lecture_upload");
-
-			} else {
-				error = true;
-				errorMessage = "'" + courseName
-						+ "' is the name of existing active course. Please try again with a different course name.";
-			}
-
-			session.setAttribute("error", error);
-			session.setAttribute("errorMessage", errorMessage);
-			doGet(request, response);
+		} else {
+			error = true;
+			errorMessage = "'" + courseName
+					+ "' is the name of existing active course. Please try again with a different course name.";
 		}
+
+		session.setAttribute("error", error);
+		session.setAttribute("errorMessage", errorMessage);
+		doGet(request, response);
 	}
 
 }

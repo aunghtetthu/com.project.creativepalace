@@ -71,34 +71,34 @@ public class ControllerUtility {
 		return fileName;
 	}
 
-	public String fileUpload(String path, HttpServletRequest request) {
-		String fileName = null;
-
-		DiskFileItemFactory fileFactory = new DiskFileItemFactory();
-		File fileDir = new File(rootPath + File.separator + path);
-		fileFactory.setRepository(fileDir);
-
-		ServletFileUpload upload = new ServletFileUpload(fileFactory);
-		try {
-			List fileItems = upload.parseRequest(request);
-			Iterator fileItemIterator = fileItems.iterator();
-			while (fileItemIterator.hasNext()) {
-				FileItem fileItem = (FileItem) fileItemIterator.next();
-				
-				File file = new File(rootPath + File.separator + path + File.separator + fileItem.getName());
-				fileItem.write(file);
-				fileName = fileItem.getName();
-			}
-		} catch (FileUploadException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return fileName;
-	}
+//	public String fileUpload(String path, HttpServletRequest request) {
+//		String fileName = null;
+//
+//		DiskFileItemFactory fileFactory = new DiskFileItemFactory();
+//		File fileDir = new File(rootPath + File.separator + path);
+//		fileFactory.setRepository(fileDir);
+//
+//		ServletFileUpload upload = new ServletFileUpload(fileFactory);
+//		try {
+//			List fileItems = upload.parseRequest(request);
+//			Iterator fileItemIterator = fileItems.iterator();
+//			while (fileItemIterator.hasNext()) {
+//				FileItem fileItem = (FileItem) fileItemIterator.next();
+//				
+//				File file = new File(rootPath + File.separator + path + File.separator + fileItem.getName());
+//				fileItem.write(file);
+//				fileName = fileItem.getName();
+//			}
+//		} catch (FileUploadException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//		return fileName;
+//	}
 
 	public void showAlertMessage(AbstractServlet obj, boolean success, String message, String locationAssign) {
 		obj.addViewObject("success", success);
@@ -119,13 +119,13 @@ public class ControllerUtility {
 		return baseUrl + File.separator + folder + File.separator + filePart;
 	}
 	
-	public boolean checkSession(HttpSession session, String sessionAttribute) {
-		if(session.getAttribute(sessionAttribute) != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+//	public boolean checkSession(HttpSession session, String sessionAttribute) {
+//		if(session.getAttribute(sessionAttribute) != null) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
 	
 	public String checkList(List list) {
 		String listCount = "0";

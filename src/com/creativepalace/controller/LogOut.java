@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/custom/logout")
+@WebServlet("/logout")
 public class LogOut extends AbstractServlet {
 
 	@Override
@@ -19,9 +19,9 @@ public class LogOut extends AbstractServlet {
 		HttpSession session = request.getSession(true);
 		
 		if(session.getAttribute("staffObj") != null) {
-			redirectPage = "staff_login";
+			redirectPage = "custom/staff_login";
 		} else {
-			redirectPage = "student_login";
+			redirectPage = "user/student_login";
 		}
 		session.invalidate();
 		response.sendRedirect(redirectPage);

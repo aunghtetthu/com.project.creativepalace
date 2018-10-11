@@ -4,5 +4,6 @@
 <script src="#agkt{baseUrl}/assets/js/jquery-slim.min.js"></script>
 <script src="#agkt{baseUrl}/assets/js/popper.min.js"></script>
 <script src="#agkt{baseUrl}/assets/library/bootstrap/bootstrap.min.js"></script>
+<script src="#agkt{baseUrl}/assets/js/main.js"></script>
 </body>
 </html>
