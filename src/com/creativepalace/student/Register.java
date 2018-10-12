@@ -31,7 +31,12 @@ public class Register extends AbstractServlet {
 		if (session.getAttribute("studentObj") != null) {
 			response.sendRedirect("index");
 		} else {
-			if (session.isNew()) {
+//			if (session.isNew()) {
+//				session.setAttribute("error", false);
+//				session.setAttribute("errorMessage", "");
+//			}
+			
+			if (session.getAttribute("error") == null) {
 				session.setAttribute("error", false);
 				session.setAttribute("errorMessage", "");
 			}

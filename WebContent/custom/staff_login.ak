@@ -1,4 +1,4 @@
-#if(#agkt{errorExistence})
+#if(#agkt{error})
 <section id="message-section">
 	<div class="container">
 		<div class="message-box error-box">
@@ -26,7 +26,7 @@
 				</div>
 				<div class="form-group">
 					<label>Email:</label>
-					<input type="text" name="email" class="form-control" placeholder="Enter your email" required/>
+					<input type="email" name="email" class="form-control" placeholder="Enter your email" required/>
 				</div>
 				<div class="form-group">
 					<label>Password:</label>

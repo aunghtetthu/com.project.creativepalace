@@ -1,3 +1,4 @@
+#if(#agkt{error})
 <section id="message-section">
 	<div class="container">
 		<div class="message-box error-box">
@@ -5,12 +6,13 @@
 				<i class="far fa-times-circle"></i>
 			</div>
 			<div class="message-text">
-				<span class="font-weight-bold">Error:</span> 'Password' and 'Confirm Password' are not same.
+				<span class="font-weight-bold">Error:</span> #agkt{errorMessage}
 			</div>
 			<div class="clearfix"></div>
 		</div> <!-- .message-box -->
 	</div> <!-- .container -->
 </section> <!-- #message-section -->
+#endIf
 
 <section id="form-section">
 	<div class="container">
@@ -24,7 +26,7 @@
 				</div>
 				<div class="form-group">
 					<label>Email:</label>
-					<input type="text" name="email" class="form-control" placeholder="Enter your email" required/>
+					<input type="email" name="email" class="form-control" placeholder="Enter your email" required/>
 				</div>
 				<div class="form-group">
 					<label>Password:</label>

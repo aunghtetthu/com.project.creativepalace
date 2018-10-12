@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col-4 text-left">
 				<div class="logo">
-					<a href="index.html"><img src="#agkt{baseUrl}/assets/img/logo.png"></a>
+					<a href="index"><img src="#agkt{baseUrl}/assets/img/logo.png"></a>
 				</div> <!-- .logo -->
 			</div> <!-- .col-4 .text-left -->
 		</div> <!-- .row -->

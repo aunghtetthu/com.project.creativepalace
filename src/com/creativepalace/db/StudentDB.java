@@ -66,4 +66,36 @@ public class StudentDB {
 		DBConnection.closeConnection(conn);
 		return studentList == null || studentList.isEmpty() ? null : studentList;
 	}
+	
+	public Student getStudentByEmail(String email) {
+		Student s = new Student();
+		String sql = "SELECT * FROM student WHERE student_email=?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, email);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				s.setStudentID(rs.getLong(1));
+				s.setStudentName(rs.getString(2));
+				s.setStudentEmail(rs.getString(3));
+				s.setStudentPassword(rs.getString(4));
+				s.setStudentPhone(rs.getString(5));
+				s.setStudentPhoto(rs.getString(6));
+				s.setStudentHome(rs.getString(7));
+				s.setStudentStreet(rs.getString(8));
+				s.setStudentTownship(rs.getString(9));
+				s.setStudentCity(rs.getString(10));
+			}
+			
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DBConnection.closeConnection(conn);
+		return s;
+	}
 }

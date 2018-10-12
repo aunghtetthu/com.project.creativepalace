@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col-2 text-left">
 				<div class="logo">
-					<a href="index.html"><img src="#agkt{baseUrl}/assets/img/logo.png"></a>
+					<a href="index"><img src="#agkt{baseUrl}/assets/img/logo.png"></a>
 				</div> <!-- .logo -->
 			</div> <!-- .col-4 .text-left -->
 			<div class="col-7 text-center">
@@ -30,10 +30,12 @@
 			</div> <!-- .col-4 .text-center -->
 			<div class="col-3 text-right">
 				<div class="student-btns">
-					<!--  <a href="login">Log In</a>  
-					<a href="register" class="btn btn-success">Register</a>  -->
-
-					<a class="account-link" href="#">Aung Htet Thu</a>
+				#if(#agkt{guest})
+					<a href="login">Log In</a>  
+					<a href="register" class="btn btn-success">Register</a>
+				#endIf
+				#if(#agkt{student})
+					<a class="account-link" href="#">#agkt{studentName}</a>
 
 					<div class="menu-control">
 						<i class="fas fa-caret-down"></i>
@@ -46,6 +48,7 @@
 							<li><a href="../logout">Log Out</a></li>
 						</ul>
 					</div>
+				#endIf
 				</div> <!-- .student-btns -->
 			</div> <!-- .col-4 .text-right -->
 		</div> <!-- .row -->
