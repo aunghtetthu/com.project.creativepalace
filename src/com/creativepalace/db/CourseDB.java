@@ -159,11 +159,19 @@ public class CourseDB {
 	
 	public ArrayList<Course> retrieveCourseByData(String fieldName, String data, String courseStatus) {
 		ArrayList<Course> courseList = new ArrayList<Course>();
-		String sql = "SELECT * FROM course WHERE " + fieldName + "=? AND course_status=?";
+//		String sql = "SELECT * FROM course WHERE " + fieldName + "=? AND course_status=?";
+		String sql;
+		String mydata = data;
+		if(fieldName.equals("course_name")) {
+			mydata = "%" + mydata + "%";
+			sql = "SELECT * FROM course WHERE " + fieldName + " LIKE ? AND course_status=?";
+		} else {
+			sql = "SELECT * FROM course WHERE " + fieldName + "=? AND course_status=?";
+		}
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, data);
+			stmt.setString(1, mydata);
 			stmt.setString(2, courseStatus);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {

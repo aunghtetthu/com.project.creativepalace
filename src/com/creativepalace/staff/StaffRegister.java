@@ -31,7 +31,7 @@ public class StaffRegister extends AbstractServlet {
 		if (session.getAttribute("staffObj") != null) {
 			response.sendRedirect("staff_home");
 		} else {
-			if (session.isNew()) {
+			if (session.getAttribute("error") == null) {
 				session.setAttribute("error", false);
 				session.setAttribute("errorMessage", "");
 			}

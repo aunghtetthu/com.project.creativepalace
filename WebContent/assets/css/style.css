@@ -555,12 +555,17 @@ footer {
 
 #course-content .course-box .course-box-category {
 	margin-bottom: 20px;
+	text-transform: capitalize;
 }
 
 #course-content .course-box .course-box-name {
 	margin-top: 20px;
 	margin-bottom: 40px;
 	font-size: 19px;
+}
+
+#course-content .my-header {
+	margin-top: 20px;
 }
 
 /*#course-content .course-box .course-box-bottom {
@@ -577,6 +582,17 @@ footer {
 
 #course-content .course-box .course-box-bottom ul li {
 	margin-bottom: 10px;
+}
+
+.my-not-found {
+	margin-top: 30px;
+	margin-bottom: 40px;
+	font-size: 20px;
+}
+
+.my-not-found span {
+	color: #910010;
+	font-weight: bolder;
 }
 /* ----------------------------------------------------------------------------
 #course-content ends here
