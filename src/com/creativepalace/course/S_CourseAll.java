@@ -14,7 +14,7 @@ import com.creativepalace.db.CourseDB;
 import com.creativepalace.model.Course;
 import com.creativepalace.model.Student;
 
-@WebServlet("/user/course_all")
+@WebServlet("/course_all")
 public class S_CourseAll extends AbstractServlet {
 	private CourseDB cdb = new CourseDB();
 

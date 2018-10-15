@@ -12,7 +12,7 @@ import com.creativepalace.controller.AbstractServlet;
 import com.creativepalace.db.StudentDB;
 import com.creativepalace.model.Student;
 
-@WebServlet("/user/login")
+@WebServlet("/login")
 public class Login extends AbstractServlet {
 
 	@Override

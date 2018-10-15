@@ -17,7 +17,7 @@ import com.creativepalace.controller.ControllerUtility;
 import com.creativepalace.db.StudentDB;
 import com.creativepalace.model.Student;
 
-@WebServlet("/user/register")
+@WebServlet("/register")
 @MultipartConfig
 public class Register extends AbstractServlet {
 	private ControllerUtility cu = new ControllerUtility();

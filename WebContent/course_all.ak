@@ -60,7 +60,7 @@
 					<div class="course-box-bottom">
 						<ul>
 							<li>#akLoopItem{searchResult[courseDuration]}</li>
-							<li>#akLoopItem{searchResult[coursePrice]}</li>
+							<li>#akLoopItem{searchResult[coursePrice]} Kyats</li>
 						</ul>
 						<a class="btn btn-success btn-block" href="course_detail?courseID=#akLoopItem{searchResult[courseID]}">Detail</a>
 					</div> <!-- .course-box-bottom -->
@@ -91,7 +91,7 @@
 					<div class="course-box-bottom">
 						<ul>
 							<li>#akLoopItem{courseList[courseDuration]}</li>
-							<li>#akLoopItem{courseList[coursePrice]}</li>
+							<li>#akLoopItem{courseList[coursePrice]} Kyats</li>
 						</ul>
 						<a class="btn btn-success btn-block" href="course_detail?courseID=#akLoopItem{courseList[courseID]}">Detail</a>
 					</div> <!-- .course-box-bottom -->
