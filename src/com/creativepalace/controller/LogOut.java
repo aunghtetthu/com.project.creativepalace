@@ -21,7 +21,7 @@ public class LogOut extends AbstractServlet {
 		if(session.getAttribute("staffObj") != null) {
 			redirectPage = "custom/staff_login";
 		} else {
-			redirectPage = "user/index";
+			redirectPage = "index";
 		}
 		session.invalidate();
 		response.sendRedirect(redirectPage);

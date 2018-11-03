@@ -18,6 +18,7 @@ import com.creativepalace.model.Course;
 import com.creativepalace.model.Lecture;
 import com.creativepalace.model.Staff;
 import com.creativepalace.model.Student;
+import com.creativepalace.model.StudentCourse;
 
 @WebServlet("/testMe")
 public class TestDB extends AbstractServlet {
@@ -27,6 +28,18 @@ public class TestDB extends AbstractServlet {
 		// TODO Auto-generated method stub
 
 		try {
+//			StudentCourseDB scdb = new StudentCourseDB();
+//			Long studentID = (long) 1;
+//			Long courseID = (long) 1;
+//			StudentCourse sc = scdb.getEnroll(studentID, courseID);
+//			if(sc == null) {
+//				System.out.println("Return null.");
+//			} else {
+//				System.out.println("course " + sc.getCourseID());
+//				System.out.println("student " + sc.getStudentID());
+//				System.out.println("Date " + sc.getEnrollDate());
+//			}
+			
 //			StudentDB sdb = new StudentDB();
 //			ArrayList<Student> sList = sdb.retrieveStudent("student_email", "Test Email");
 //			Iterator<Student> si = sList.iterator();
@@ -114,6 +127,8 @@ public class TestDB extends AbstractServlet {
 			// c.setStaffID((long) 1);
 			// cdb.createCourse(c);
 			//
+			
+			this.setHeader("studentPlainHeader");
 			this.showView(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

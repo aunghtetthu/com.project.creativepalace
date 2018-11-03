@@ -30,12 +30,17 @@ header .menu-wrapper ul {
 	font-size: 18px;
 	margin: 0;
 	padding: 0;
+	/*width: 100%;*/
 }
 
 header .menu-wrapper ul li {
 	display: inline-block;
-	/*padding: 20px;*/
 	margin: 5px 35px;
+
+	/*display: block;
+	margin: 5px auto;
+	float: left;
+	width: 25%;*/
 }
 
 header .menu-wrapper ul li a {
@@ -596,4 +601,41 @@ footer {
 }
 /* ----------------------------------------------------------------------------
 #course-content ends here
+---------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------
+#enroll-section starts here
+---------------------------------------------------------------------------- */
+#enroll-section .enroll-content {
+	background-color: #FFFFFF;
+	padding: 30px;
+	margin: 20px auto;
+}
+
+#enroll-section div.enroll-content > div.my-title {
+	margin-bottom: 40px;
+}
+
+#enroll-section div.enroll-content > div {
+	margin-bottom: 30px;
+}
+
+#enroll-section div.enroll-content > div.bank-account div.my-header {
+	margin-bottom: 10px;
+}
+
+#enroll-section div.enroll-content > div.bank-account p {
+	margin-bottom: 5px;
+}
+
+#enroll-section div.enroll-content > div.enroll-message {
+	border: 1px solid #333;
+	background-color: #eaeaea;
+	width: 90%;
+	padding: 20px 30px;
+	margin-right: auto;
+	margin-left: auto;
+}
+/* ----------------------------------------------------------------------------
+#enroll-section ends here
 ---------------------------------------------------------------------------- */

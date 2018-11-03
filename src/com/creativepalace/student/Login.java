@@ -19,20 +19,21 @@ public class Login extends AbstractServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true);
-		
-		if(session.getAttribute("studentObj") != null) {
-			response.sendRedirect("index");
+
+		if (session.getAttribute("studentObj") != null) {
+
+			// Send Redirect
+			if (session.getAttribute("enrollCourseID") != null) {
+				response.sendRedirect("enroll_course");
+			} else {
+				response.sendRedirect("index");
+			}
 		} else {
-//			if(session.isNew()) {
-//				session.setAttribute("error", false);
-//				session.setAttribute("errorMessage", "");
-//			}
-			
 			if (session.getAttribute("error") == null) {
 				session.setAttribute("error", false);
 				session.setAttribute("errorMessage", "");
 			}
-			
+
 			try {
 				this.addViewObject("error", session.getAttribute("error"));
 				this.addViewObject("errorMessage", session.getAttribute("errorMessage"));
@@ -53,12 +54,12 @@ public class Login extends AbstractServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		HttpSession session = request.getSession(true);
-		
+
 		StudentDB sdb = new StudentDB();
 		Student s = sdb.getStudentByEmail(email);
-		
-		if(s.getStudentEmail() != null) {
-			if(password.equals(s.getStudentPassword())) {
+
+		if (s.getStudentEmail() != null) {
+			if (password.equals(s.getStudentPassword())) {
 				session.setAttribute("studentObj", s);
 				error = false;
 				errorMessage = "";
@@ -70,7 +71,7 @@ public class Login extends AbstractServlet {
 			error = true;
 			errorMessage = "Email is incorret.";
 		}
-		
+
 		session.setAttribute("error", error);
 		session.setAttribute("errorMessage", errorMessage);
 		doGet(request, response);
