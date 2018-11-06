@@ -37,13 +37,38 @@
 				<div><span class="content-title">Duration:</span> #agkt{courseDuration}</div>
 				<div><span class="content-title">Price:</span> #agkt{coursePrice} kyats</div>
 			</div> <!-- .content-group -->
+			
+			#if(#agkt{showEnrollButton})
 			<div class="content-group text-left">
 				<a class="btn btn-success btn-lg" href="enroll_course?courseID=#agkt{courseID}" role="button">Enroll Now</a>
 			</div> <!-- .content-group -->
+			#endIf
+			
+			#if(#agkt{showEnrollMessage})
+			<div class="content-group">
+				<div class="bank-account">
+					<div class="content-title">Bank Account</div>
+					<div>
+						<p><strong>Account Name:</strong> 434398439843984398439849384</p>
+						<p><strong>Account Name:</strong> 434398439843984398439849384</p>
+						<p><strong>Account Name:</strong> 434398439843984398439849384</p>
+					</div>
+				</div> <!-- .bank-account -->
+			</div> <!-- .content-group -->
+			<div class="content-group">
+				<div class="enroll-message">
+					<p>Your enrollment has been recorded. We will contact you soon by either phone or email. Please pay course fee to one of above mentioned bank accounts. After the payment is confirmed, you can learn the lectures. Pleace contact for more information.</p>
+					<p><strong>Email:</strong> enroll@creativepalace.com <br>
+					<strong>Phone:</strong> 09-xxxxxxxxxx</p>
+				</div> <!-- .enroll-message -->
+			</div> <!-- .content-group -->
+			#endIf
+			
 		</div> <!-- .course-content-wrapper -->
 	</div> <!-- .container -->
 </section> <!-- #course-detail -->
 
+#if(#agkt{showLecture})
 <section id="lecture-list">
 	<div class="container">
 		<div class="lecture-list-wrapper">
@@ -71,3 +96,4 @@
 		</div>
 	</div> <!-- .container -->
 </section> <!-- #lecture-list -->
+#endIf

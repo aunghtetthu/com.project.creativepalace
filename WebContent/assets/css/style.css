@@ -488,7 +488,7 @@ footer {
 }
 
 .lecture-detail-wrapper .course-name {
-	padding: 30px;
+	padding: 23px 30px;
 	border-bottom: 2px solid #3AFF51;
 }
 
@@ -569,7 +569,7 @@ footer {
 	font-size: 19px;
 }
 
-#course-content .my-header {
+#course-content .my-header, #course-content .my-title {
 	margin-top: 20px;
 }
 
@@ -620,15 +620,16 @@ footer {
 	margin-bottom: 30px;
 }
 
-#enroll-section div.enroll-content > div.bank-account div.my-header {
+div.bank-account div.my-header {
 	margin-bottom: 10px;
 }
 
-#enroll-section div.enroll-content > div.bank-account p {
+div.bank-account p {
 	margin-bottom: 5px;
 }
 
-#enroll-section div.enroll-content > div.enroll-message {
+/*#enroll-section div.enroll-content > div.enroll-message*/ 
+div.enroll-message {
 	border: 1px solid #333;
 	background-color: #eaeaea;
 	width: 90%;

@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import com.creativepalace.controller.AbstractServlet;
 import com.creativepalace.model.Course;
 import com.creativepalace.model.Lecture;
+import com.creativepalace.model.Payment;
 import com.creativepalace.model.Staff;
 import com.creativepalace.model.Student;
 import com.creativepalace.model.StudentCourse;
@@ -28,6 +29,12 @@ public class TestDB extends AbstractServlet {
 		// TODO Auto-generated method stub
 
 		try {
+//			PaymentDB pdb = new PaymentDB();
+//			Payment p = pdb.checkPayment((long)1, (long)2);
+//			
+//			System.out.println(p.getPaymentDate());
+			
+			
 //			StudentCourseDB scdb = new StudentCourseDB();
 //			Long studentID = (long) 1;
 //			Long courseID = (long) 1;

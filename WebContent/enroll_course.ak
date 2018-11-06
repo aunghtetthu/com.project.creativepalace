@@ -20,7 +20,7 @@
 				<strong>Phone:</strong> 09-xxxxxxxxxx</p>
 			</div>
 			<div>
-				<a href="dashboard" class="btn btn-success">Go to Dashboard</a>
+				<a href="dashboard_course" class="btn btn-success">Go to Dashboard</a>
 			</div>
 		</div>
 	</div> <!-- .container -->
