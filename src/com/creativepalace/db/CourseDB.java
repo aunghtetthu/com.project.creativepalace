@@ -31,15 +31,10 @@ public class CourseDB {
 		}
 		DBConnection.closeConnection(conn);
 	}
-	
+
 	public void updateCourse(Course c) {
-		String sql = "UPDATE course SET"
-				+ " course_duration=?,"
-				+ " course_info=?,"
-				+ " course_syllabus=?,"
-				+ " course_price=?,"
-				+ " course_status=?"
-				+ " WHERE course_id=?";
+		String sql = "UPDATE course SET" + " course_duration=?," + " course_info=?," + " course_syllabus=?,"
+				+ " course_price=?," + " course_status=?" + " WHERE course_id=?";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -57,7 +52,7 @@ public class CourseDB {
 		}
 		DBConnection.closeConnection(conn);
 	}
-	
+
 	public Course getCourseByID(Long id) {
 		Course c = new Course();
 		String sql = "SELECT * FROM course WHERE course_id=?";
@@ -66,7 +61,7 @@ public class CourseDB {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				c.setCourseID(rs.getLong(1));
 				c.setCourseName(rs.getString(2));
 				c.setCourseDuration(rs.getString(3));
@@ -76,20 +71,20 @@ public class CourseDB {
 				c.setCourseCategory(rs.getString(7));
 				c.setCourseCoverPhoto(rs.getString(8));
 				c.setCourseStatus(rs.getString(9));
-				c.setStaffID((long)rs.getInt(10));
+				c.setStaffID((long) rs.getInt(10));
 			}
-			
+
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		DBConnection.closeConnection(conn);
 		return c;
 	}
-	
+
 	public Course getCourseByName(String courseName) {
 		Course c = new Course();
 		String sql = "SELECT * FROM course WHERE course_name=? AND course_status='active'";
@@ -98,7 +93,7 @@ public class CourseDB {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, courseName);
 			ResultSet rs = stmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				c.setCourseID(rs.getLong(1));
 				c.setCourseName(rs.getString(2));
 				c.setCourseDuration(rs.getString(3));
@@ -108,20 +103,20 @@ public class CourseDB {
 				c.setCourseCategory(rs.getString(7));
 				c.setCourseCoverPhoto(rs.getString(8));
 				c.setCourseStatus(rs.getString(9));
-				c.setStaffID((long)rs.getInt(10));
+				c.setStaffID((long) rs.getInt(10));
 			}
-			
+
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		DBConnection.closeConnection(conn);
 		return c;
 	}
-	
+
 	public ArrayList<Course> retrieveCourse(String courseStatus) {
 		ArrayList<Course> courseList = new ArrayList<Course>();
 		String sql = "SELECT * FROM course WHERE course_status=?";
@@ -130,7 +125,7 @@ public class CourseDB {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, courseStatus);
 			ResultSet rs = stmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				Course c = new Course();
 				c.setCourseID(rs.getLong(1));
 				c.setCourseName(rs.getString(2));
@@ -141,28 +136,29 @@ public class CourseDB {
 				c.setCourseCategory(rs.getString(7));
 				c.setCourseCoverPhoto(rs.getString(8));
 				c.setCourseStatus(rs.getString(9));
-				c.setStaffID((long)rs.getInt(10));
+				c.setStaffID((long) rs.getInt(10));
 				courseList.add(c);
 			}
-			
+
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		DBConnection.closeConnection(conn);
-//		return courseList==null || courseList.isEmpty() ? null : courseList;
+		// return courseList==null || courseList.isEmpty() ? null : courseList;
 		return courseList;
 	}
-	
+
 	public ArrayList<Course> retrieveCourseByData(String fieldName, String data, String courseStatus) {
 		ArrayList<Course> courseList = new ArrayList<Course>();
-//		String sql = "SELECT * FROM course WHERE " + fieldName + "=? AND course_status=?";
+		// String sql = "SELECT * FROM course WHERE " + fieldName + "=? AND
+		// course_status=?";
 		String sql;
 		String mydata = data;
-		if(fieldName.equals("course_name")) {
+		if (fieldName.equals("course_name")) {
 			mydata = "%" + mydata + "%";
 			sql = "SELECT * FROM course WHERE " + fieldName + " LIKE ? AND course_status=?";
 		} else {
@@ -174,7 +170,7 @@ public class CourseDB {
 			stmt.setString(1, mydata);
 			stmt.setString(2, courseStatus);
 			ResultSet rs = stmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				Course c = new Course();
 				c.setCourseID(rs.getLong(1));
 				c.setCourseName(rs.getString(2));
@@ -185,22 +181,22 @@ public class CourseDB {
 				c.setCourseCategory(rs.getString(7));
 				c.setCourseCoverPhoto(rs.getString(8));
 				c.setCourseStatus(rs.getString(9));
-				c.setStaffID((long)rs.getInt(10));
+				c.setStaffID((long) rs.getInt(10));
 				courseList.add(c);
 			}
-			
+
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		DBConnection.closeConnection(conn);
-//		return courseList==null || courseList.isEmpty() ? null : courseList;
+		// return courseList==null || courseList.isEmpty() ? null : courseList;
 		return courseList;
 	}
-	
+
 	public ArrayList<Course> searchCourse(String fieldName, String searchKey) {
 		ArrayList<Course> courseList = new ArrayList<Course>();
 		String sql = "SELECT * FROM course WHERE " + fieldName + "=?";
@@ -209,7 +205,7 @@ public class CourseDB {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, searchKey);
 			ResultSet rs = stmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				Course c = new Course();
 				c.setCourseID(rs.getLong(1));
 				c.setCourseName(rs.getString(2));
@@ -220,21 +216,54 @@ public class CourseDB {
 				c.setCourseCategory(rs.getString(7));
 				c.setCourseCoverPhoto(rs.getString(8));
 				c.setCourseStatus(rs.getString(9));
-				c.setStaffID((long)rs.getInt(10));
+				c.setStaffID((long) rs.getInt(10));
 				courseList.add(c);
 			}
-			
+
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		DBConnection.closeConnection(conn);
-//		return courseList==null || courseList.isEmpty() ? null : courseList;
+		// return courseList==null || courseList.isEmpty() ? null : courseList;
 		return courseList;
 	}
-	
-	
+
+	public ArrayList<Course> courseEnrolledByStudent(Long studentID) {
+		ArrayList<Course> courseList = new ArrayList<Course>();
+		String sql = "SELECT c.* FROM course c, student_course sc, student s WHERE c.course_id = sc.course_id AND sc.student_id = s.student_id AND s.student_id = ?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setLong(1, studentID);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Course c = new Course();
+				c.setCourseID(rs.getLong(1));
+				c.setCourseName(rs.getString(2));
+				c.setCourseDuration(rs.getString(3));
+				c.setCourseInfo(rs.getString(4));
+				c.setCourseSyllabus(rs.getString(5));
+				c.setCoursePrice(rs.getBigDecimal(6));
+				c.setCourseCategory(rs.getString(7));
+				c.setCourseCoverPhoto(rs.getString(8));
+				c.setCourseStatus(rs.getString(9));
+				c.setStaffID((long) rs.getInt(10));
+				courseList.add(c);
+			}
+
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		DBConnection.closeConnection(conn);
+		return courseList;
+	}
+
 }

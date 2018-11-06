@@ -43,7 +43,7 @@
 
 					<div class="student-menu d-none">
 						<ul>
-							<li><a href="#">Dashboard</a></li>
+							<li><a href="dashboard_course">Dashboard</a></li>
 							<li><a href="#">Profile</a></li>
 							<li><a href="logout">Log Out</a></li>
 						</ul>

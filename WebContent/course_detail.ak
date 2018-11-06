@@ -8,7 +8,7 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
 			    <li class="nav-item">
-			        <a class="btn btn-success my-2 my-sm-0" href="course_all"><i class="far fa-arrow-alt-circle-left"></i> Back</a>
+			        <a class="btn btn-success my-2 my-sm-0" href="#agkt{back}"><i class="far fa-arrow-alt-circle-left"></i> Back</a>
 			    </li>
 		    </ul>
 		  </div>

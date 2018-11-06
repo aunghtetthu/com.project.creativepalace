@@ -34,6 +34,8 @@ public class S_CourseDetail extends AbstractServlet {
 		ArrayList<Lecture> lectureList = ldb.retrieveLecture(course.getCourseID());
 		
 		try {
+			this.addViewObject("back", request.getParameter("back") == null ? "course_all" : "dashboard_course");
+			
 			this.addViewObject("courseName", course.getCourseName());
 			this.addViewObject("courseCoverPhoto",
 					cu.fileLocation(course.getCourseCoverPhoto(), "course_coverPhoto", request));
