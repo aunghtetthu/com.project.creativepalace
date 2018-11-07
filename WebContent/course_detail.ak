@@ -36,6 +36,9 @@
 			<div class="content-group">
 				<div><span class="content-title">Duration:</span> #agkt{courseDuration}</div>
 				<div><span class="content-title">Price:</span> #agkt{coursePrice} kyats</div>
+				#if(#agkt{showEnrollMessage})
+				<div><span class="content-title">Course ID Code:</span> #agkt{courseID}</div>
+				#endIf
 			</div> <!-- .content-group -->
 			
 			#if(#agkt{showEnrollButton})
@@ -45,6 +48,7 @@
 			#endIf
 			
 			#if(#agkt{showEnrollMessage})
+			
 			<div class="content-group">
 				<div class="bank-account">
 					<div class="content-title">Bank Account</div>

@@ -640,3 +640,30 @@ div.enroll-message {
 /* ----------------------------------------------------------------------------
 #enroll-section ends here
 ---------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------
+#payment-enrollment starts here
+---------------------------------------------------------------------------- */
+#payment-enrollment {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#payment-enrollment .enrollment-box {
+	background-color: #FFFFFF;
+	padding: 30px 45px;
+	border: 2px #3AFF51 solid;
+	border-radius: 10px;
+	margin-bottom: 30px;
+}
+
+#payment-enrollment .enrollment-box .my-header, #payment-enrollment .my-title {
+	margin-bottom: 15px;
+}
+
+#payment-enrollment .enrollment-box > .row div.col-12 {
+	margin-top: 30px;
+}
+/* ----------------------------------------------------------------------------
+#payment-enrollment ends here
+---------------------------------------------------------------------------- */

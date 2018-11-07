@@ -83,7 +83,7 @@
 		
 		#if(#agkt{financeTask})
 			<div class="col-4">
-				<a href="#" class="category text-center">
+				<a href="payment_enrollment" class="category text-center">
 					<i class="far fa-credit-card"></i>
 					<p class="my-header">Payment</p>
 				</a>

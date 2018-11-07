@@ -11,14 +11,21 @@ public class PaymentDB {
 	
 	public void recordPayment(Payment p) {
 		String sql = "INSERT INTO payment (payment_amount, staff_id, studentcourse_id) VALUES (?, ?, ?)";
+		String scSql = "UPDATE student_course SET course_access=? WHERE studentcourse_id=?";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setBigDecimal(1, p.getPaymentAmount());
 			stmt.setLong(2, p.getStaffID());
 			stmt.setLong(3, p.getStudentCourseID());
-			stmt.executeUpdate();
+			stmt.executeUpdate();						
 			stmt.close();
+			
+			PreparedStatement scStmt = conn.prepareStatement(scSql);
+			scStmt.setString(1, "confirmed");
+			scStmt.setLong(2, p.getStudentCourseID());
+			scStmt.executeUpdate();
+			scStmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

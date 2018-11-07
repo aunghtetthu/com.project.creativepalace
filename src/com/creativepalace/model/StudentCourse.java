@@ -5,6 +5,7 @@ public class StudentCourse {
 	private Long courseID;
 	private Long studentID;
 	private String enrollDate;
+	private String courseAccess;
 	private int examMark;
 
 	public Long getStudentCourseID() {
@@ -45,5 +46,13 @@ public class StudentCourse {
 
 	public void setExamMark(int examMark) {
 		this.examMark = examMark;
+	}
+
+	public String getCourseAccess() {
+		return courseAccess;
+	}
+
+	public void setCourseAccess(String courseAccess) {
+		this.courseAccess = courseAccess;
 	}
 }
