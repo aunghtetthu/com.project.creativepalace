@@ -60,4 +60,27 @@ public class PaymentDB {
 		DBConnection.closeConnection(conn);
 		return p;
 	}
+	
+	public void cancelPayment(Long studentCourseID) {
+		String sql = "DELETE FROM payment WHERE studentcourse_id = ?";
+		String scSql = "UPDATE student_course SET course_access=? WHERE studentcourse_id=?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setLong(1, studentCourseID);
+			stmt.executeUpdate();
+			stmt.close();
+			
+			PreparedStatement scStmt = conn.prepareStatement(scSql);
+			scStmt.setString(1, "pending");
+			scStmt.setLong(2, studentCourseID);
+			scStmt.executeUpdate();
+			scStmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DBConnection.closeConnection(conn);
+	}
 }

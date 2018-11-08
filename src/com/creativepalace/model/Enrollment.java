@@ -12,6 +12,15 @@ public class Enrollment {
 	private Long studentCourseID;
 	private String staffName;
 	private Long staffID;
+	private String paymentDate;
+
+	public String getPaymentDate() {
+		return paymentDate;
+	}
+
+	public void setPaymentDate(String paymentDate) {
+		this.paymentDate = paymentDate;
+	}
 
 	public String getStaffName() {
 		return staffName;

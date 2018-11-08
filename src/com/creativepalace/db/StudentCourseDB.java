@@ -59,4 +59,21 @@ public class StudentCourseDB {
 		DBConnection.closeConnection(conn);
 		return sc;
 	}
+	
+	public void deleteEnroll(Long studentCourseID) {
+		String sql = "DELETE FROM student_course WHERE studentcourse_id = ?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setLong(1, studentCourseID);
+			stmt.executeUpdate();
+			stmt.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DBConnection.closeConnection(conn);
+	}
 }

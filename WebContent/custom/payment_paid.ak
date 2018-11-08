@@ -54,9 +54,10 @@
 					<div><strong>Price: </strong>#akLoopItem{searchList[coursePrice]} kyats</div>
 				</div> <!-- .col-6 -->
 				<div class="col-12">
-					This payment is confirmed by <a href="staff_detail?staffID=#akLoopItem{searchList[staffID]}">
+					<div><strong>Confirmed by: </strong><a href="staff_detail?staffID=#akLoopItem{searchList[staffID]}">
 					#akLoopItem{searchList[staffName]}
-					</a>.
+					</a></div>
+					<div><strong>Payment Date: </strong>#akLoopItem{searchList[paymentDate]}</div>
 				</div> <!-- .col-12 -->
 				<div class="col-12">
 					<a class="btn btn-danger" href="payment_cancel?studentCourseID=#akLoopItem{searchList[studentCourseID]}">Cancel Payment</a>
@@ -85,9 +86,10 @@
 					<div><strong>Price: </strong>#akLoopItem{enrollmentList[coursePrice]} kyats</div>
 				</div> <!-- .col-6 -->
 				<div class="col-12">
-					This payment is confirmed by <a href="staff_detail?staffID=#akLoopItem{enrollmentList[staffID]}">
+					<div><strong>Confirmed by: </strong> <a href="staff_detail?staffID=#akLoopItem{enrollmentList[staffID]}">
 					#akLoopItem{enrollmentList[staffName]}
-					</a>.
+					</a></div>
+					<div><strong>Payment Date: </strong>#akLoopItem{enrollmentList[paymentDate]}</div>
 				</div> <!-- .col-12 -->
 				<div class="col-12">
 					<a class="btn btn-danger" href="payment_cancel?studentCourseID=#akLoopItem{enrollmentList[studentCourseID]}">Cancel Payment</a>

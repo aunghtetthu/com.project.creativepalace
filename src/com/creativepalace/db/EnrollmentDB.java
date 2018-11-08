@@ -44,7 +44,7 @@ public class EnrollmentDB {
 
 	public ArrayList<Enrollment> getConfirmedEnrollment() {
 		ArrayList<Enrollment> eList = new ArrayList<Enrollment>();
-		String sql = "SELECT s.student_name, s.student_email, s.student_phone, c.course_id, c.course_name, c.course_price, sc.studentcourse_id, st.staff_id, st.staff_name  FROM student s, course c, student_course sc, payment p, staff st WHERE sc.student_id = s.student_id AND sc.course_id = c.course_id AND sc.studentcourse_id = p.studentcourse_id AND p.staff_id = st.staff_id AND sc.course_access = ?";
+		String sql = "SELECT s.student_name, s.student_email, s.student_phone, c.course_id, c.course_name, c.course_price, sc.studentcourse_id, st.staff_id, st.staff_name, p.payment_date  FROM student s, course c, student_course sc, payment p, staff st WHERE sc.student_id = s.student_id AND sc.course_id = c.course_id AND sc.studentcourse_id = p.studentcourse_id AND p.staff_id = st.staff_id AND sc.course_access = ?";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -61,6 +61,7 @@ public class EnrollmentDB {
 				enrollment.setStudentCourseID(rs.getLong(7));
 				enrollment.setStaffID(rs.getLong(8));
 				enrollment.setStaffName(rs.getString(9));
+				enrollment.setPaymentDate(rs.getString(10));
 
 				eList.add(enrollment);
 			}
@@ -116,7 +117,7 @@ public class EnrollmentDB {
 		if(courseAccess.equals("pending")) {
 			sql = "SELECT s.student_name, s.student_email, s.student_phone, c.course_id, c.course_name, c.course_price, sc.studentcourse_id FROM student s, course c, student_course sc WHERE sc.student_id = s.student_id AND sc.course_id = c.course_id AND sc.course_access = ? AND s.student_email = ? AND c.course_id = ?";
 		} else if(courseAccess.equals("confirmed")) {
-			sql = "SELECT s.student_name, s.student_email, s.student_phone, c.course_id, c.course_name, c.course_price, sc.studentcourse_id, st.staff_id, st.staff_name  FROM student s, course c, student_course sc, payment p, staff st WHERE sc.student_id = s.student_id AND sc.course_id = c.course_id AND sc.studentcourse_id = p.studentcourse_id AND p.staff_id = st.staff_id AND sc.course_access = ? AND s.student_email = ? AND c.course_id = ?";
+			sql = "SELECT s.student_name, s.student_email, s.student_phone, c.course_id, c.course_name, c.course_price, sc.studentcourse_id, st.staff_id, st.staff_name, p.payment_date  FROM student s, course c, student_course sc, payment p, staff st WHERE sc.student_id = s.student_id AND sc.course_id = c.course_id AND sc.studentcourse_id = p.studentcourse_id AND p.staff_id = st.staff_id AND sc.course_access = ? AND s.student_email = ? AND c.course_id = ?";
 		}
 		Connection conn = DBConnection.createConnection();
 		try {
@@ -136,6 +137,7 @@ public class EnrollmentDB {
 				enrollment.setStudentCourseID(rs.getLong(7));
 				enrollment.setStaffID(rs.getLong(8));
 				enrollment.setStaffName(rs.getString(9));
+				enrollment.setPaymentDate(rs.getString(10));
 
 				eList.add(enrollment);
 			}
