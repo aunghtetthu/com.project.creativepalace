@@ -14,10 +14,10 @@ import com.creativepalace.controller.AbstractServlet;
 import com.creativepalace.db.EnrollmentDB;
 import com.creativepalace.model.Enrollment;
 
-@WebServlet("/custom/payment_enrollment")
-public class PaymentEnrollment extends AbstractServlet {
-	private EnrollmentDB edb = new EnrollmentDB();
-
+@WebServlet("/custom/payment_paid")
+public class PaymentPaid extends AbstractServlet {
+	EnrollmentDB edb = new EnrollmentDB();
+	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -36,7 +36,7 @@ public class PaymentEnrollment extends AbstractServlet {
 					this.addViewObject("noResult", false);
 				}
 
-				ArrayList<Enrollment> enrollmentList = edb.getNewEnrollment();
+				ArrayList<Enrollment> enrollmentList = edb.getConfirmedEnrollment();
 				if (enrollmentList.size() == 0) {
 					this.addViewObject("showEnrollment", false);
 					this.addViewObject("noEnrollment", true);
@@ -61,7 +61,7 @@ public class PaymentEnrollment extends AbstractServlet {
 		String studentEmail = request.getParameter("studentEmail");
 		Long courseID = Long.parseLong(request.getParameter("courseID"));
 
-		List<Enrollment> searchList = edb.searchEnrollment("pending", studentEmail, courseID);
+		List<Enrollment> searchList = edb.searchEnrollment("confirmed", studentEmail, courseID);
 		this.addViewObject("searchList", searchList);
 
 		if (searchList.size() == 0) {

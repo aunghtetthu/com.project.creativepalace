@@ -8,13 +8,13 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
 			    <li class="nav-item">
-			        <a class="nav-link menu-active" href="payment_enrollment">Enrollment</span></a>
+			        <a class="nav-link" href="payment_enrollment">Enrollment</span></a>
 			    </li>
 			    <li class="nav-item">
-			        <a class="nav-link" href="payment_paid">Payment List</a>
+			        <a class="nav-link menu-active" href="payment_paid">Payment List</a>
 			    </li>
 		    </ul>
-		    <form action="payment_enrollment" method="POST" class="form-inline my-2 my-lg-0">
+		    <form action="payment_paid" method="POST" class="form-inline my-2 my-lg-0">
 		    	<input name="studentEmail" class="form-control mr-sm-2" type="search" placeholder="Student Email" aria-label="Search" required>
 		        <input name="courseID" class="form-control mr-sm-2" type="search" placeholder="CourseID" aria-label="Search" required>
 		        <button name="btnSubmit" class="btn btn-outline-success my-2 my-sm-0" type="submit" value="submit">Search</button>
@@ -54,25 +54,21 @@
 					<div><strong>Price: </strong>#akLoopItem{searchList[coursePrice]} kyats</div>
 				</div> <!-- .col-6 -->
 				<div class="col-12">
-					<a class="btn btn-success" href="payment_confirm?studentCourseID=#akLoopItem{searchList[studentCourseID]}">Confirm Payment</a>
-					<a class="btn btn-danger" href="enrollment_delete?studentCourseID=#akLoopItem{searchList[studentCourseID]}">Delete Enrollment</a>
+					This payment is confirmed by <a href="staff_detail?staffID=#akLoopItem{searchList[staffID]}">
+					#akLoopItem{searchList[staffName]}
+					</a>.
+				</div> <!-- .col-12 -->
+				<div class="col-12">
+					<a class="btn btn-danger" href="payment_cancel?studentCourseID=#akLoopItem{searchList[studentCourseID]}">Delete Enrollment</a>
 				</div> <!-- .col-12 -->
 			</div> <!-- .row -->
 		</div> <!-- .enrollment-box -->
 		#akEndLoop{searchList}
 	#endIf
 
-	#if(#agkt{noEnrollment})
-		<div class="my-title">Enrollment List</div>
-		
-		<div class="my-not-found">
-			<p><span>There is no enrollment.</span></p>
-		</div>
-	#endIf
-	
 	#if(#agkt{showEnrollment})
-		<div class="my-title">Enrollment List</div>
-		
+		<div class="my-title">Payment List</div>
+
 		#akStartLoop{enrollmentList}
 		<div class="enrollment-box">
 			<div class="row">
@@ -89,13 +85,17 @@
 					<div><strong>Price: </strong>#akLoopItem{enrollmentList[coursePrice]} kyats</div>
 				</div> <!-- .col-6 -->
 				<div class="col-12">
-					<a class="btn btn-success" href="payment_confirm?studentCourseID=#akLoopItem{enrollmentList[studentCourseID]}">Confirm Payment</a>
-					<a class="btn btn-danger" href="enrollment_delete?studentCourseID=#akLoopItem{enrollmentList[studentCourseID]}">Delete Enrollment</a>
+					This payment is confirmed by <a href="staff_detail?staffID=#akLoopItem{enrollmentList[staffID]}">
+					#akLoopItem{enrollmentList[staffName]}
+					</a>.
+				</div> <!-- .col-12 -->
+				<div class="col-12">
+					<a class="btn btn-danger" href="payment_cancel?studentCourseID=#akLoopItem{enrollmentList[studentCourseID]}">Delete Enrollment</a>
 				</div> <!-- .col-12 -->
 			</div> <!-- .row -->
 		</div> <!-- .enrollment-box -->
 		#akEndLoop{enrollmentList}
 	#endIf
-	
+
 	</div> <!-- .container -->
 </section> <!-- #payment-enrollment -->

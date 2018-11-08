@@ -10,6 +10,24 @@ public class Enrollment {
 	private String courseName;
 	private BigDecimal coursePrice;
 	private Long studentCourseID;
+	private String staffName;
+	private Long staffID;
+
+	public String getStaffName() {
+		return staffName;
+	}
+
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+
+	public Long getStaffID() {
+		return staffID;
+	}
+
+	public void setStaffID(Long staffID) {
+		this.staffID = staffID;
+	}
 
 	public String getStudentName() {
 		return studentName;
