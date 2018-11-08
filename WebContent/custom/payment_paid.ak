@@ -59,7 +59,7 @@
 					</a>.
 				</div> <!-- .col-12 -->
 				<div class="col-12">
-					<a class="btn btn-danger" href="payment_cancel?studentCourseID=#akLoopItem{searchList[studentCourseID]}">Delete Enrollment</a>
+					<a class="btn btn-danger" href="payment_cancel?studentCourseID=#akLoopItem{searchList[studentCourseID]}">Cancel Payment</a>
 				</div> <!-- .col-12 -->
 			</div> <!-- .row -->
 		</div> <!-- .enrollment-box -->
@@ -90,7 +90,7 @@
 					</a>.
 				</div> <!-- .col-12 -->
 				<div class="col-12">
-					<a class="btn btn-danger" href="payment_cancel?studentCourseID=#akLoopItem{enrollmentList[studentCourseID]}">Delete Enrollment</a>
+					<a class="btn btn-danger" href="payment_cancel?studentCourseID=#akLoopItem{enrollmentList[studentCourseID]}">Cancel Payment</a>
 				</div> <!-- .col-12 -->
 			</div> <!-- .row -->
 		</div> <!-- .enrollment-box -->

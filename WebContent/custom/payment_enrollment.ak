@@ -54,7 +54,8 @@
 					<div><strong>Price: </strong>#akLoopItem{searchList[coursePrice]} kyats</div>
 				</div> <!-- .col-6 -->
 				<div class="col-12">
-					<a class="btn btn-success" href="payment_confirm?studentCourseID=#akLoopItem{searchList[studentCourseID]}">Confirm Payment</a>
+					<a class="btn btn-success" href="payment_confirm?studentCourseID=#akLoopItem{searchList[studentCourseID]}&
+					coursePrice=#akLoopItem{searchList[coursePrice]}">Confirm Payment</a>
 					<a class="btn btn-danger" href="enrollment_delete?studentCourseID=#akLoopItem{searchList[studentCourseID]}">Delete Enrollment</a>
 				</div> <!-- .col-12 -->
 			</div> <!-- .row -->
@@ -89,7 +90,8 @@
 					<div><strong>Price: </strong>#akLoopItem{enrollmentList[coursePrice]} kyats</div>
 				</div> <!-- .col-6 -->
 				<div class="col-12">
-					<a class="btn btn-success" href="payment_confirm?studentCourseID=#akLoopItem{enrollmentList[studentCourseID]}">Confirm Payment</a>
+					<a class="btn btn-success" href="payment_confirm?studentCourseID=#akLoopItem{enrollmentList[studentCourseID]}&
+					coursePrice=#akLoopItem{enrollmentList[coursePrice]}">Confirm Payment</a>
 					<a class="btn btn-danger" href="enrollment_delete?studentCourseID=#akLoopItem{enrollmentList[studentCourseID]}">Delete Enrollment</a>
 				</div> <!-- .col-12 -->
 			</div> <!-- .row -->
