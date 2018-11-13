@@ -54,7 +54,10 @@
 				    <tr>
 				        <th scope="row">#akLoopItem{activeList[courseID]}</th>
 				        <td>#akLoopItem{activeList[courseName]}</td>
-				        <td><a class="btn btn-success" href="course_detail?courseID=#akLoopItem{activeList[courseID]}">View Detail</a></td>
+				        <td>
+				        	<a class="btn btn-success" href="course_detail?courseID=#akLoopItem{activeList[courseID]}">View Detail</a>
+				        	<a class="btn btn-success" href="exam_question?courseID=#akLoopItem{activeList[courseID]}">Exam Question</a>
+				        </td>
 				    </tr>
 				#akEndLoop{activeList}
 				
@@ -85,7 +88,10 @@
 				    <tr>
 				        <th scope="row">#akLoopItem{inactiveList[courseID]}</th>
 				        <td>#akLoopItem{inactiveList[courseName]}</td>
-				        <td><a class="btn btn-success" href="course_detail?courseID=#akLoopItem{inactiveList[courseID]}">View Detail</a></td>
+				        <td>
+				        	<a class="btn btn-success" href="course_detail?courseID=#akLoopItem{inactiveList[courseID]}">View Detail</a>
+				        	<a class="btn btn-success" href="exam_question?courseID=#akLoopItem{inactiveList[courseID]}">Exam Question</a>
+				        </td>
 				    </tr>
 				#akEndLoop{inactiveList}
 				

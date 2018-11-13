@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import com.creativepalace.controller.AbstractServlet;
 import com.creativepalace.model.Course;
 import com.creativepalace.model.Enrollment;
+import com.creativepalace.model.ExamQuestion;
 import com.creativepalace.model.Lecture;
 import com.creativepalace.model.Payment;
 import com.creativepalace.model.Staff;
@@ -30,6 +31,33 @@ public class TestDB extends AbstractServlet {
 		// TODO Auto-generated method stub
 
 		try {
+			ExamQuestion eq = new ExamQuestion();
+			eq.setQuestion("This is question");
+			eq.setQuestionNumber(1);
+			eq.setChoice1("This is choice1.");
+			eq.setChoice2("This is choice2 is good.");
+			eq.setChoice3("This is choice3.");
+			eq.setChoice4("This is choice4.");
+			eq.setChoice5("This is choice5.");
+			eq.setAnswer("This is answer.");
+			eq.setCourseID(Long.parseLong("1"));
+			eq.setExamQuestionID(Long.parseLong("1"));
+			
+			ExamQuestionDB eqdb = new ExamQuestionDB();
+//			eqdb.deleteExamQuestion(Long.parseLong("1"));
+//			eqdb.editExamQuestion(eq);
+//			ArrayList<ExamQuestion> eqList = eqdb.retrieveExamQuestion(Long.parseLong("1"));
+//			Iterator<ExamQuestion> eqIterator = eqList.iterator();
+//			while(eqIterator.hasNext()) {
+//				ExamQuestion tempEq = eqIterator.next();
+//				System.out.println(tempEq.getAnswer());
+//			}
+//			ExamQuestion req = eqdb.getExamQuestion(Long.parseLong("1"));
+//			System.out.println(req.getQuestion());
+//			eqdb.addExamQuestion(eq);
+			
+//			eq = 
+			
 //			StudentCourseDB scdb = new StudentCourseDB();
 //			ArrayList<Enrollment> en = scdb.getNewEnrollment();
 //			Iterator<Enrollment> eI = en.iterator();

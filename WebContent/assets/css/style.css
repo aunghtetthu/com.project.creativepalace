@@ -423,6 +423,11 @@ footer {
 #table-section table th[colspan] {
 	background-color: #3AFF51;
 }
+
+#table-section .staff-profile {
+	max-width: 150px;
+	max-height: 150px;
+}
 /* ----------------------------------------------------------------------------
 #table-section ends here
 ---------------------------------------------------------------------------- */
@@ -666,4 +671,30 @@ div.enroll-message {
 }
 /* ----------------------------------------------------------------------------
 #payment-enrollment ends here
+---------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------
+#exam-questions starts here
+---------------------------------------------------------------------------- */
+#exam-questions {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#exam-questions .question-box {
+	background-color: #FFFFFF;
+	padding: 30px 40px 20px;
+	margin-bottom: 30px;
+	border: 2px solid #3AFF51;
+}
+
+#exam-questions .question-box .my-header {
+	margin-bottom: 30px;
+}
+
+#exam-questions .question-box .question-group {
+	margin-bottom: 15px;
+}
+/* ----------------------------------------------------------------------------
+#exam-questions ends here
 ---------------------------------------------------------------------------- */

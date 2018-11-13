@@ -59,7 +59,10 @@
 				        <th scope="row">#akLoopItem{searchResult[courseID]}</th>
 				        <td>#akLoopItem{searchResult[courseName]}</td>
 				        <td>#akLoopItem{searchResult[courseStatus]}</td>
-				        <td><a class="btn btn-success" href="course_detail?courseID=#akLoopItem{searchResult[courseID]}">View Detail</a></td>
+				        <td>
+				        	<a class="btn btn-success" href="course_detail?courseID=#akLoopItem{searchResult[courseID]}">View Detail</a>
+				        	<a class="btn btn-success" href="exam_question?courseID=#akLoopItem{searchResult[courseID]}">Exam Question</a>
+				        </td>
 				    </tr>
 				#akEndLoop{searchResult}
 				
@@ -95,7 +98,10 @@
 				        <th scope="row">#akLoopItem{activeCourseList[courseID]}</th>
 				        <td>#akLoopItem{activeCourseList[courseName]}</td>
 				        <td>#akLoopItem{activeCourseList[courseCategory]}</td>
-				        <td><a class="btn btn-success" href="course_detail?courseID=#akLoopItem{activeCourseList[courseID]}">View Detail</a></td>
+				        <td>
+				        	<a class="btn btn-success" href="course_detail?courseID=#akLoopItem{activeCourseList[courseID]}">View Detail</a>
+				        	<a class="btn btn-success" href="exam_question?courseID=#akLoopItem{activeCourseList[courseID]}">Exam Question</a>
+				        </td>
 				    </tr>
 				#akEndLoop{activeCourseList}
 				
@@ -129,7 +135,10 @@
 				        <th scope="row">#akLoopItem{inactiveCourseList[courseID]}</th>
 				        <td>#akLoopItem{inactiveCourseList[courseName]}</td>
 				        <td>#akLoopItem{inactiveCourseList[courseCategory]}</td>
-				        <td><a class="btn btn-success" href="course_detail?courseID=#akLoopItem{inactiveCourseList[courseID]}">View Detail</a></td>
+				        <td>
+				        	<a class="btn btn-success" href="course_detail?courseID=#akLoopItem{inactiveCourseList[courseID]}">View Detail</a>
+				        	<a class="btn btn-success" href="exam_question?courseID=#akLoopItem{inactiveCourseList[courseID]}">Exam Question</a>
+				        </td>
 				    </tr>
 				#akEndLoop{inactiveCourseList}
 				

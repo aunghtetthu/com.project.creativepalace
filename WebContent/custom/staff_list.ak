@@ -62,7 +62,8 @@
 					        <td>#akLoopItem{resultList[staffEmail]}</td>
 					        <td>#akLoopItem{resultList[staffPhone]}</td>
 					        <td>#akLoopItem{resultList[staffRole]}</td>
-					        <td><a class="btn btn-success" href="#">View Detail</a></td>
+					        <td><img src="#agkt{baseUrl}/staff_photo/
+						#akLoopItem{resultList[staffPhoto]}" class="img-fluid img-thumbnail staff-profile"></td>
 					    </tr>
 					#akEndLoop{resultList}
 								
@@ -97,7 +98,8 @@
 				        <td>#akLoopItem{adminList[staffEmail]}</td>
 				        <td>#akLoopItem{adminList[staffPhone]}</td>
 				        <td>#akLoopItem{adminList[staffRole]}</td>
-				        <td><a class="btn btn-success" href="#">View Detail</a></td>
+				        <td><img src="#agkt{baseUrl}/staff_photo/
+						#akLoopItem{adminList[staffPhoto]}" class="img-fluid img-thumbnail staff-profile"></td>
 				    </tr>
 				#akEndLoop{adminList}
 				
@@ -139,7 +141,8 @@
 				        <td>#akLoopItem{financeList[staffEmail]}</td>
 				        <td>#akLoopItem{financeList[staffPhone]}</td>
 				        <td>#akLoopItem{financeList[staffRole]}</td>
-				        <td><a class="btn btn-success" href="#">View Detail</a></td>
+				        <td><img src="#agkt{baseUrl}/staff_photo/
+						#akLoopItem{financeList[staffPhoto]}" class="img-fluid img-thumbnail staff-profile"></td>
 				    </tr>
 				#akEndLoop{financeList}
 				
@@ -181,7 +184,8 @@
 				        <td>#akLoopItem{teacherList[staffEmail]}</td>
 				        <td>#akLoopItem{teacherList[staffPhone]}</td>
 				        <td>#akLoopItem{teacherList[staffRole]}</td>
-				        <td><a class="btn btn-success" href="#">View Detail</a></td>
+				        <td><img src="#agkt{baseUrl}/staff_photo/
+						#akLoopItem{teacherList[staffPhoto]}" class="img-fluid img-thumbnail staff-profile"></td>
 				    </tr>
 				#akEndLoop{teacherList}
 				
