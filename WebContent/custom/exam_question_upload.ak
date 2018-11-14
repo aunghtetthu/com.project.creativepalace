@@ -1,0 +1,78 @@
+<section id="navigation-section">
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+			    <li class="nav-item">
+			        <a class="btn btn-success my-2 my-sm-0" href="course_all.html"><i class="far fa-arrow-alt-circle-left"></i> Back</a>
+			    </li>
+			     <li class="nav-item">
+			        <a class="nav-link" href="exam_question">Questions</span></a>
+			    </li>
+			    <li class="nav-item">
+			        <a class="nav-link menu-active" href="exam_question_upload">Add Question</a>
+			    </li>
+		    </ul>
+		  </div>
+		</nav>
+	</div> <!-- .container -->
+</section> <!-- #navigation-section -->
+
+<section id="form-section">
+	<div class="container">
+		<div class="form-wrapper">
+			<form action="exam_question_upload" method="POST">
+				<div class="form-title">
+					Add Question for "#agkt{courseName}"
+				</div>
+				<input type="hidden" name="courseID" value="#agkt{courseID}">
+				<div class="form-group">
+					<label>Question Number: </label>
+					<input type="number" name="questionNumber" class="form-control" placeholder="Enter the qeustion number." required/>
+				</div>
+				<div class="form-group">
+					<label>Question:</label>
+					<textarea name="question" class="form-control" rows="2" placeholder="Enter the question." required></textarea>
+				</div>
+				<div class="form-group">
+					<label>Choice 1:</label>
+					<textarea name="choice1" class="form-control" rows="2" placeholder="Enter the answer for choice 1." required></textarea>
+				</div>
+				<div class="form-group">
+					<label>Choice 2:</label>
+					<textarea name="choice2" class="form-control" rows="2" placeholder="Enter the answer for choice 2." required></textarea>
+				</div>
+				<div class="form-group">
+					<label>Choice 3:</label>
+					<textarea name="choice3" class="form-control" rows="2" placeholder="Enter the answer for choice 3." required></textarea>
+				</div>
+				<div class="form-group">
+					<label>Choice 4:</label>
+					<textarea name="choice4" class="form-control" rows="2" placeholder="Enter the answer for choice 4." required></textarea>
+				</div>
+				<div class="form-group">
+					<label>Choice 5:</label>
+					<textarea name="choice5" class="form-control" rows="2" placeholder="Enter the answer for choice 5." required></textarea>
+				</div>
+				<div class="form-group">
+					<label>Answer:</label>
+					<textarea name="answer" class="form-control" rows="2" placeholder="Enter the correct answer." required></textarea>
+				</div>
+				<div class="text-left">
+					<button type="submit" name="btnSubmit" class="btn btn-success" value="Submit">Add Question</button>
+				</div>
+			</form>
+		</div> <!-- .form-wrapper -->
+	</div><!-- .container -->
+</section> <!-- #form-section -->
+
+#if(#agkt{success})
+<script>
+	alert('#agkt{successMessage}');
+	location.assign('#agkt{locationAssign}');
+</script>
+#endIf
