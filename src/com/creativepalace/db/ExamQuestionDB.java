@@ -99,7 +99,7 @@ public class ExamQuestionDB {
 	}
 	
 	public void editExamQuestion(ExamQuestion examQuestion) {
-		String sql = "UPDATE exam_question SET question = ?, question_number = ?, choice1 = ? , choice2 = ?, choice3 = ?, choice4 = ?,  choice5 = ?, answer = ?, course_id = ? WHERE examquestion_id = ?";
+		String sql = "UPDATE exam_question SET question = ?, question_number = ?, choice1 = ? , choice2 = ?, choice3 = ?, choice4 = ?,  choice5 = ?, answer = ? WHERE examquestion_id = ?";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -111,8 +111,7 @@ public class ExamQuestionDB {
 			stmt.setString(6, examQuestion.getChoice4());
 			stmt.setString(7, examQuestion.getChoice5());
 			stmt.setString(8, examQuestion.getAnswer());
-			stmt.setLong(9, examQuestion.getCourseID());
-			stmt.setLong(10, examQuestion.getExamQuestionID());
+			stmt.setLong(9, examQuestion.getExamQuestionID());
 			stmt.executeUpdate();
 			
 			stmt.close();

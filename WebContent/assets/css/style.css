@@ -681,6 +681,10 @@ div.enroll-message {
 	padding-bottom: 30px;
 }
 
+#exam-questions > div > div.my-header {
+	margin-bottom: 25px;
+}
+
 #exam-questions .question-box {
 	background-color: #FFFFFF;
 	padding: 30px 40px 20px;

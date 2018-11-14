@@ -14,7 +14,7 @@
 			        <a class="nav-link" href="exam_question?courseID=#agkt{courseID}">Questions</span></a>
 			    </li>
 			    <li class="nav-item">
-			        <a class="nav-link menu-active" href="exam_question_upload?courseID=#agkt{courseID}">Add Question</a>
+			        <a class="nav-link" href="exam_question_upload?courseID=#agkt{courseID}">Add Question</a>
 			    </li>
 		    </ul>
 		  </div>
@@ -25,45 +25,46 @@
 <section id="form-section">
 	<div class="container">
 		<div class="form-wrapper">
-			<form action="exam_question_upload" method="POST">
+			<form action="exam_question_edit" method="POST">
 				<div class="form-title">
-					Add Question for "#agkt{courseName}"
+					Edit Question for "#agkt{courseName}"
 				</div>
 				<input type="hidden" name="courseID" value="#agkt{courseID}">
+				<input type="hidden" name="examQuestionID" value="#agkt{examQuestionID}">
 				<div class="form-group">
 					<label>Question Number: </label>
-					<input type="number" name="questionNumber" class="form-control" placeholder="Enter the qeustion number." required/>
+					<input type="number" name="questionNumber" class="form-control" placeholder="Enter the qeustion number." value="#agkt{questionNumber}" required/>
 				</div>
 				<div class="form-group">
 					<label>Question:</label>
-					<textarea name="question" class="form-control" rows="2" placeholder="Enter the question." required></textarea>
+					<textarea name="question" class="form-control" rows="2" placeholder="Enter the question." required>#agkt{question}</textarea>
 				</div>
 				<div class="form-group">
 					<label>Choice 1:</label>
-					<textarea name="choice1" class="form-control" rows="2" placeholder="Enter the answer for choice 1." required></textarea>
+					<textarea name="choice1" class="form-control" rows="2" placeholder="Enter the answer for choice 1." required>#agkt{choice1}</textarea>
 				</div>
 				<div class="form-group">
 					<label>Choice 2:</label>
-					<textarea name="choice2" class="form-control" rows="2" placeholder="Enter the answer for choice 2." required></textarea>
+					<textarea name="choice2" class="form-control" rows="2" placeholder="Enter the answer for choice 2." required>#agkt{choice2}</textarea>
 				</div>
 				<div class="form-group">
 					<label>Choice 3:</label>
-					<textarea name="choice3" class="form-control" rows="2" placeholder="Enter the answer for choice 3." required></textarea>
+					<textarea name="choice3" class="form-control" rows="2" placeholder="Enter the answer for choice 3." required>#agkt{choice3}</textarea>
 				</div>
 				<div class="form-group">
 					<label>Choice 4:</label>
-					<textarea name="choice4" class="form-control" rows="2" placeholder="Enter the answer for choice 4." required></textarea>
+					<textarea name="choice4" class="form-control" rows="2" placeholder="Enter the answer for choice 4." required>#agkt{choice4}</textarea>
 				</div>
 				<div class="form-group">
 					<label>Choice 5:</label>
-					<textarea name="choice5" class="form-control" rows="2" placeholder="Enter the answer for choice 5." required></textarea>
+					<textarea name="choice5" class="form-control" rows="2" placeholder="Enter the answer for choice 5." required>#agkt{choice5}</textarea>
 				</div>
 				<div class="form-group">
 					<label>Answer:</label>
-					<textarea name="answer" class="form-control" rows="2" placeholder="Enter the correct answer." required></textarea>
+					<textarea name="answer" class="form-control" rows="2" placeholder="Enter the correct answer." required>#agkt{answer}</textarea>
 				</div>
 				<div class="text-left">
-					<button type="submit" name="btnSubmit" class="btn btn-success" value="Submit">Add Question</button>
+					<button type="submit" name="btnSubmit" class="btn btn-success" value="Submit">Edit Question</button>
 				</div>
 			</form>
 		</div> <!-- .form-wrapper -->
