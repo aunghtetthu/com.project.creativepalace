@@ -13,7 +13,7 @@ import com.creativepalace.model.StudentCourse;
 
 public class StudentCourseDB {
 	public void enrollCourse(Long studentID, Long courseID) {
-		String sql = "INSERT INTO student_course (course_id, student_id, exam_mark, course_access) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO student_course (course_id, student_id, exam_mark, course_access, student_type) VALUES (?, ?, ?, ?)";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -21,6 +21,7 @@ public class StudentCourseDB {
 			stmt.setLong(2, studentID);
 			stmt.setInt(3, 0);
 			stmt.setString(4, "pending");
+			stmt.setString(5, "fresher");
 			stmt.executeUpdate();
 			stmt.close();
 		} catch (SQLException e) {
@@ -47,6 +48,7 @@ public class StudentCourseDB {
 				sc.setEnrollDate(rs.getString(4));
 				sc.setCourseAccess(rs.getString(5));
 				sc.setExamMark(rs.getInt(6));
+				sc.setStudentType(rs.getString(7));
 			}
 
 			rs.close();
