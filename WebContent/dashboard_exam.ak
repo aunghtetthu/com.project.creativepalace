@@ -8,13 +8,13 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
 			    <li class="nav-item">
-			        <a class="nav-link menu-active" href="dashboard_course">My Courses</span></a>
+			        <a class="nav-link" href="dashboard_course">My Courses</span></a>
 			    </li>
 			    <li class="nav-item">
 			        <a class="nav-link" href="dashboard_payment">Payment History</a>
 			    </li>
 			    <li class="nav-item">
-			        <a class="nav-link" href="dashboard_exam">Exam</a>
+			        <a class="nav-link menu-active" href="dashboard_exam">Exam</a>
 			    </li>
 			    <li class="nav-item">
 			        <a class="nav-link" href="dashboard_certificate">Certificate</a>
@@ -32,12 +32,27 @@
 
 		#if(#agkt{noCourse})
 		<div class="my-not-found">
-			<p><span>You haven't joined the course yet.</span></p>
+			<p><span>You don't have any exam yet.</span></p>
 		</div>
 		#endIf
 		
 		#if(#agkt{courseShow})
-		<div class="my-header">My Courses</div>
+		
+		<section id="message-section">
+			<div class="container">
+				<div class="message-box info-box">
+					<div class="message-icon info-icon-bg">
+						<i class="fas fa-info-circle"></i>
+					</div>
+					<div class="message-text">
+						<span class="font-weight-bold">Warning!</span> You can take each exam only once. Please make sure that you will take exam seriously before you click "Take Exam" button.  
+					</div>
+					<div class="clearfix"></div>
+				</div> <!-- .message-box -->
+			</div> <!-- .container -->
+		</section> <!-- #message-section -->
+		
+		<div class="my-header">Exam</div>
 		<div class="row">
 		
 		#akStartLoop{courseList}
@@ -54,11 +69,7 @@
 						#akLoopItem{courseList[courseName]}
 					</div>
 					<div class="course-box-bottom">
-						<ul>
-							<li>#akLoopItem{courseList[courseDuration]}</li>
-							<li>#akLoopItem{courseList[coursePrice]} Kyats</li>
-						</ul>
-						<a class="btn btn-success btn-block" href="course_detail?courseID=#akLoopItem{courseList[courseID]}&back=dashboard">Detail</a>
+						<a class="btn btn-danger btn-block btn-lg font-weight-bold" href="exam?courseID=#akLoopItem{courseList[courseID]}&back=dashboard">Take Exam</a>
 					</div> <!-- .course-box-bottom -->
 				</div> <!-- .course-box -->
 			</div> <!-- .col-4 -->

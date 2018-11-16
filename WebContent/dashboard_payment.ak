@@ -13,6 +13,12 @@
 			    <li class="nav-item">
 			        <a class="nav-link menu-active" href="dashboard_payment">Payment History</a>
 			    </li>
+			    <li class="nav-item">
+			        <a class="nav-link" href="dashboard_exam">Exam</a>
+			    </li>
+			    <li class="nav-item">
+			        <a class="nav-link" href="dashboard_certificate">Certificate</a>
+			    </li>
 		    </ul>
 		  </div>
 		</nav>

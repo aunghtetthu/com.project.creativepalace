@@ -265,5 +265,32 @@ public class CourseDB {
 		DBConnection.closeConnection(conn);
 		return courseList;
 	}
+	
+	public ArrayList<Course> getCourseForExam(Long studentID) {
+		ArrayList<Course> cList = new ArrayList<Course>();
+		String sql = "SELECT c.course_id, c.course_name, c.course_category, c.course_coverphoto FROM course c, student_course sc, student s WHERE c.course_id = sc.course_id AND sc.course_access = ? AND sc.student_id = s.student_id AND s.student_id = ?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, "confirmed");
+			stmt.setLong(2, studentID);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Course c = new Course();
+				c.setCourseID(rs.getLong(1));
+				c.setCourseName(rs.getString(2));
+				c.setCourseCategory(rs.getString(3));
+				c.setCourseCoverPhoto(rs.getString(4));
+				cList.add(c);
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DBConnection.closeConnection(conn);
+		return cList;
+	}
 
 }
