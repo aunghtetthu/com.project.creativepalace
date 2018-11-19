@@ -60,8 +60,18 @@
 					<textarea name="choice5" class="form-control" rows="2" placeholder="Enter the answer for choice 5." required>#agkt{choice5}</textarea>
 				</div>
 				<div class="form-group">
-					<label>Answer:</label>
-					<textarea name="answer" class="form-control" rows="2" placeholder="Enter the correct answer." required>#agkt{answer}</textarea>
+					<label>Answer:</label><br>
+					<input type="radio" name="answer" value="#agkt{answer}" checked> 
+					#agkt{answer}<br>
+					<input type="radio" name="answer" value="choice1" required> choice1<br>
+					<input type="radio" name="answer" value="choice2"> choice2<br>
+					<input type="radio" name="answer" value="choice3"> choice3<br>
+					<input type="radio" name="answer" value="choice4"> choice4<br>
+					<input type="radio" name="answer" value="choice5"> choice5<br>
+				</div>
+				<div class="form-group">
+					<label>Mark: </label>
+					<input type="number" name="mark" class="form-control" placeholder="Enter the mark." value="#agkt{mark}" required/>
 				</div>
 				<div class="text-left">
 					<button type="submit" name="btnSubmit" class="btn btn-success" value="Submit">Edit Question</button>

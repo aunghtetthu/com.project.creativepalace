@@ -59,6 +59,7 @@ public class ExamQuestionEdit extends AbstractServlet {
 					this.addViewObject("choice4", eq.getChoice4());
 					this.addViewObject("choice5", eq.getChoice5());
 					this.addViewObject("answer", eq.getAnswer());
+					this.addViewObject("mark", eq.getMark());
 
 					this.setHeader("staffPlainHeader");
 					this.showView(request, response);
@@ -89,6 +90,7 @@ public class ExamQuestionEdit extends AbstractServlet {
 			eq.setChoice4(request.getParameter("choice4"));
 			eq.setChoice5(request.getParameter("choice5"));
 			eq.setAnswer(request.getParameter("answer"));
+			eq.setMark(Integer.parseInt(request.getParameter("mark")));
 
 			eqdb.editExamQuestion(eq);
 

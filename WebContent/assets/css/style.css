@@ -97,6 +97,7 @@ header .student-btns .menu-control i:hover {
 	position: absolute;
 	top: 120%;
 	left: 27%;
+	z-index: 2;
 }
 
 .student-menu.mb {
@@ -701,4 +702,33 @@ div.enroll-message {
 }
 /* ----------------------------------------------------------------------------
 #exam-questions ends here
+---------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------
+#exam-section starts here
+---------------------------------------------------------------------------- */
+#exam-section {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#exam-section .exam-question-wrapper {
+	padding: 30px;
+	background-color: #FFFFFF;
+	border: 2px solid #3AFF51;
+}
+
+#exam-section .exam-question-wrapper .my-header {
+	margin-bottom: 50px;
+}
+
+#exam-section .exam-question-wrapper .question-wrapper {
+	margin-bottom: 40px;
+}
+
+#exam-section .exam-question-wrapper .question-wrapper .answer-wrapper {
+	margin-top: 15px;
+}
+/* ----------------------------------------------------------------------------
+#exam-section ends here
 ---------------------------------------------------------------------------- */

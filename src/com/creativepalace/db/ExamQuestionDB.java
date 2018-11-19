@@ -29,6 +29,7 @@ public class ExamQuestionDB {
 				eq.setChoice5(rs.getString(8));
 				eq.setAnswer(rs.getString(9));
 				eq.setCourseID(rs.getLong(10));
+				eq.setMark(rs.getInt(11));
 				eqList.add(eq);
 			}
 			
@@ -61,6 +62,7 @@ public class ExamQuestionDB {
 				eq.setChoice5(rs.getString(8));
 				eq.setAnswer(rs.getString(9));
 				eq.setCourseID(rs.getLong(10));
+				eq.setMark(rs.getInt(11));
 			}
 			
 			rs.close();
@@ -76,7 +78,7 @@ public class ExamQuestionDB {
 	}
 	
 	public void addExamQuestion(ExamQuestion examQuestion) {
-		String sql = "INSERT INTO exam_question(question, question_number, choice1, choice2, choice3, choice4, choice5, answer, course_id) VALUES (?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO exam_question(question, question_number, choice1, choice2, choice3, choice4, choice5, answer, course_id, mark) VALUES (?,?,?,?,?,?,?,?,?,?)";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -89,6 +91,7 @@ public class ExamQuestionDB {
 			stmt.setString(7, examQuestion.getChoice5());
 			stmt.setString(8, examQuestion.getAnswer());
 			stmt.setLong(9, examQuestion.getCourseID());
+			stmt.setInt(10, examQuestion.getMark());
 			stmt.executeUpdate();
 			stmt.close();
 		} catch (SQLException e) {
@@ -99,7 +102,7 @@ public class ExamQuestionDB {
 	}
 	
 	public void editExamQuestion(ExamQuestion examQuestion) {
-		String sql = "UPDATE exam_question SET question = ?, question_number = ?, choice1 = ? , choice2 = ?, choice3 = ?, choice4 = ?,  choice5 = ?, answer = ? WHERE examquestion_id = ?";
+		String sql = "UPDATE exam_question SET question = ?, question_number = ?, choice1 = ? , choice2 = ?, choice3 = ?, choice4 = ?,  choice5 = ?, answer = ?, mark = ? WHERE examquestion_id = ?";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -111,7 +114,8 @@ public class ExamQuestionDB {
 			stmt.setString(6, examQuestion.getChoice4());
 			stmt.setString(7, examQuestion.getChoice5());
 			stmt.setString(8, examQuestion.getAnswer());
-			stmt.setLong(9, examQuestion.getExamQuestionID());
+			stmt.setInt(9, examQuestion.getMark());
+			stmt.setLong(10, examQuestion.getExamQuestionID());
 			stmt.executeUpdate();
 			
 			stmt.close();

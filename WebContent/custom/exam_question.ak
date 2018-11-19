@@ -32,17 +32,18 @@
 			<div class="question-group">
 				<div><strong>Question: </strong>#akLoopItem{eqList[question]}</div>
 				<div><strong>Answer: </strong>#akLoopItem{eqList[answer]}</div>
+				<div><strong>Mark: </strong>#akLoopItem{eqList[mark]}</div>
 			</div>
 			<div class="question-group">
-				<div><strong>Multiple Answers</strong></div>
+				<div><strong>Answer Choices</strong></div>
 				<div>
-					<ul>
+					<ol>
 						<li>#akLoopItem{eqList[choice1]}</li>
 						<li>#akLoopItem{eqList[choice2]}</li>
 						<li>#akLoopItem{eqList[choice3]}</li>
 						<li>#akLoopItem{eqList[choice4]}</li>
 						<li>#akLoopItem{eqList[choice5]}</li>
-					</ul>
+					</ol>
 				</div>
 			</div>
 			<div>

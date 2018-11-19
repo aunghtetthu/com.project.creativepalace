@@ -268,12 +268,14 @@ public class CourseDB {
 	
 	public ArrayList<Course> getCourseForExam(Long studentID) {
 		ArrayList<Course> cList = new ArrayList<Course>();
-		String sql = "SELECT c.course_id, c.course_name, c.course_category, c.course_coverphoto FROM course c, student_course sc, student s WHERE c.course_id = sc.course_id AND sc.course_access = ? AND sc.student_id = s.student_id AND s.student_id = ?";
+//		String sql = "SELECT c.course_id, c.course_name, c.course_category, c.course_coverphoto FROM course c, student_course sc, student s WHERE c.course_id = sc.course_id AND sc.course_access = ? AND sc.student_id = s.student_id AND s.student_id = ?";
+		String sql = "SELECT c.course_id, c.course_name, c.course_category, c.course_coverphoto FROM course c, student_course sc, student s WHERE c.course_id = sc.course_id AND sc.course_access = ? AND sc.student_type = ? AND sc.student_id = s.student_id AND s.student_id = ?";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, "confirmed");
-			stmt.setLong(2, studentID);
+			stmt.setString(2, "fresher");
+			stmt.setLong(3, studentID);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				Course c = new Course();

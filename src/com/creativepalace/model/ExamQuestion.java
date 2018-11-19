@@ -11,6 +11,7 @@ public class ExamQuestion {
 	String choice5;
 	String answer;
 	Long courseID;
+	int mark;
 
 	public Long getExamQuestionID() {
 		return examQuestionID;
@@ -90,6 +91,14 @@ public class ExamQuestion {
 
 	public void setCourseID(Long courseID) {
 		this.courseID = courseID;
+	}
+
+	public int getMark() {
+		return mark;
+	}
+
+	public void setMark(int mark) {
+		this.mark = mark;
 	}
 
 }

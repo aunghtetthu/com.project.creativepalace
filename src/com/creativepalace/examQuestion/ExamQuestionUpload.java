@@ -72,11 +72,14 @@ public class ExamQuestionUpload extends AbstractServlet {
 			eq.setChoice4(request.getParameter("choice4"));
 			eq.setChoice5(request.getParameter("choice5"));
 			eq.setAnswer(request.getParameter("answer"));
+			eq.setMark(Integer.parseInt(request.getParameter("mark")));
 			eq.setCourseID(courseID);
 			eqdb.addExamQuestion(eq);
 			
 			cu.showAlertMessage(this, true, "Question has been added successfully.", "exam_question?courseID="+courseID);
 		}
+		
+		doGet(request, response);
 	}
 
 }

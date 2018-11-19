@@ -69,7 +69,8 @@
 						#akLoopItem{courseList[courseName]}
 					</div>
 					<div class="course-box-bottom">
-						<a class="btn btn-danger btn-block btn-lg font-weight-bold" href="exam?courseID=#akLoopItem{courseList[courseID]}&back=dashboard">Take Exam</a>
+						<a class="btn btn-danger btn-block btn-lg font-weight-bold" href="exam?courseID=#akLoopItem{courseList[courseID]}&
+						courseName=#akLoopItem{courseList[courseName]}">Take Exam</a>
 					</div> <!-- .course-box-bottom -->
 				</div> <!-- .course-box -->
 			</div> <!-- .col-4 -->
