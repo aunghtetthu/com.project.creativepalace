@@ -26,7 +26,7 @@ public class StaffHome extends AbstractServlet {
 				ControllerUtility cu = new ControllerUtility();
 
 				this.setHeader("staffHeader");
-
+				
 				this.addViewObject("name", s.getStaffName());
 				this.addViewObject("role", s.getStaffRole());
 				this.addViewObject("email", s.getStaffEmail());

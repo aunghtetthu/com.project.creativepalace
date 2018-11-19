@@ -38,10 +38,10 @@ public class LectureUpload extends AbstractServlet {
 
 					this.addViewObject("courseID", c.getCourseID());
 					this.addViewObject("courseName", c.getCourseName());
-					this.addViewObject("successBox", session.getAttribute("successBox"));
-					this.addViewObject("lectureTitle", session.getAttribute("lectureTitle"));
-					this.addViewObject("error", session.getAttribute("error"));
-					this.addViewObject("errorMessage", session.getAttribute("errorMessage"));
+					this.addViewObject("successBox", session.getAttribute("successBox") == null ? false : session.getAttribute("successBox"));
+					this.addViewObject("lectureTitle", session.getAttribute("lectureTitle") == null ? "" : session.getAttribute("lectureTitle"));
+					this.addViewObject("error", session.getAttribute("error") == null ? false : session.getAttribute("error"));
+					this.addViewObject("errorMessage", session.getAttribute("errorMessage") == null ? "" : session.getAttribute("errorMessage"));
 					this.setHeader("staffPlainHeader");
 					this.showView(request, response);
 				} catch (Exception e) {

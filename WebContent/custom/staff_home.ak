@@ -13,7 +13,7 @@
 						<li>Email: #agkt{email}</li>
 						<li>Phone: #agkt{phone}</li>
 					</ul>
-					<a href="#" class="btn btn-success">Edit</a>
+					<a href="staff_edit" class="btn btn-success">Edit</a>
 				</div>
 			</div> <!-- .col-7 -->
 			<div class="col-5">

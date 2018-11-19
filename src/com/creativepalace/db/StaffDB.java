@@ -3,6 +3,7 @@ package com.creativepalace.db;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.creativepalace.model.Staff;
@@ -109,5 +110,24 @@ public class StaffDB {
 		}
 		DBConnection.closeConnection(c);
 		return s;
+	}
+	
+	public void editStaff(Staff s) {
+		String sql = "UPDATE staff SET staff_name = ?, staff_email = ?, staff_phone = ? WHERE staff_id = ?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, s.getStaffName());
+			stmt.setString(2, s.getStaffEmail());
+			stmt.setString(3, s.getStaffPhone());
+			stmt.setLong(4, s.getStaffID());
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DBConnection.closeConnection(conn);
 	}
 }
