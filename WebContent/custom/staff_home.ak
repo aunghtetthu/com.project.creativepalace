@@ -65,7 +65,7 @@
 				</a>
 			</div> <!-- .col-4 -->
 			<div class="col-4">
-				<a href="#" class="category text-center">
+				<a href="certificate_candidate" class="category text-center">
 					<i class="fas fa-certificate"></i>
 					<p class="my-header">Certificate</p>
 				</a>

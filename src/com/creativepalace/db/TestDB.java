@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.creativepalace.controller.AbstractServlet;
+import com.creativepalace.model.Certificate;
 import com.creativepalace.model.Course;
 import com.creativepalace.model.Enrollment;
 import com.creativepalace.model.ExamQuestion;
+import com.creativepalace.model.IssueCertificate;
 import com.creativepalace.model.Lecture;
 import com.creativepalace.model.Payment;
 import com.creativepalace.model.Staff;
@@ -31,19 +33,34 @@ public class TestDB extends AbstractServlet {
 		// TODO Auto-generated method stub
 
 		try {
-			ExamQuestion eq = new ExamQuestion();
-			eq.setQuestion("This is question");
-			eq.setQuestionNumber(1);
-			eq.setChoice1("This is choice1.");
-			eq.setChoice2("This is choice2 is good.");
-			eq.setChoice3("This is choice3.");
-			eq.setChoice4("This is choice4.");
-			eq.setChoice5("This is choice5.");
-			eq.setAnswer("This is answer.");
-			eq.setCourseID(Long.parseLong("1"));
-			eq.setExamQuestionID(Long.parseLong("1"));
+//			CertificateDB cdb = new CertificateDB();
+//			List<IssueCertificate> searchList = cdb.getCandidatesByEmail("aung@gmail.com");
+//			System.out.println("Search List size:" + searchList.size());
+//			Iterator<IssueCertificate> it = searchList.iterator();
+//			while(it.hasNext()) {
+//				IssueCertificate is = it.next();
+//				System.out.println("it is " +is.getStudentName());
+//			}
+//			Certificate c = new Certificate();
+//			c.setCertificatePDF("This is pdf");
+//			c.setStudentCourseID(Long.parseLong("3"));
+//			
+//			CertificateDB cdb = new CertificateDB();
+//			cdb.createCertificate(c);
 			
-			ExamQuestionDB eqdb = new ExamQuestionDB();
+//			ExamQuestion eq = new ExamQuestion();
+//			eq.setQuestion("This is question");
+//			eq.setQuestionNumber(1);
+//			eq.setChoice1("This is choice1.");
+//			eq.setChoice2("This is choice2 is good.");
+//			eq.setChoice3("This is choice3.");
+//			eq.setChoice4("This is choice4.");
+//			eq.setChoice5("This is choice5.");
+//			eq.setAnswer("This is answer.");
+//			eq.setCourseID(Long.parseLong("1"));
+//			eq.setExamQuestionID(Long.parseLong("1"));
+//			
+//			ExamQuestionDB eqdb = new ExamQuestionDB();
 //			eqdb.deleteExamQuestion(Long.parseLong("1"));
 //			eqdb.editExamQuestion(eq);
 //			ArrayList<ExamQuestion> eqList = eqdb.retrieveExamQuestion(Long.parseLong("1"));
