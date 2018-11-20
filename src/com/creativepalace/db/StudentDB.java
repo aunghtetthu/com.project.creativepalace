@@ -132,4 +132,26 @@ public class StudentDB {
 		DBConnection.closeConnection(conn);
 		return s;
 	}
+	
+	public void editStudent(Student s) {
+		String sql = "UPDATE student SET student_name = ?, student_phone = ?, student_home = ?, student_street = ?, student_township = ?, student_city = ? WHERE student_email = ?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, s.getStudentName());
+			stmt.setString(2, s.getStudentPhone());
+			stmt.setString(3, s.getStudentHome());
+			stmt.setString(4, s.getStudentStreet());
+			stmt.setString(5, s.getStudentTownship());
+			stmt.setString(6, s.getStudentCity());
+			stmt.setString(7, s.getStudentEmail());
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DBConnection.closeConnection(conn);
+	}
 }

@@ -16,7 +16,7 @@
 						<li>Township: #agkt{township}</li>
 						<li>City: #agkt{city}</li>
 					</ul>
-					<a href="student_edit?studentID=#agkt{id}" class="btn btn-success">Edit</a>
+					<a href="student_edit" class="btn btn-success">Edit</a>
 				</div>
 			</div> <!-- .col-7 -->
 			<div class="col-5">
