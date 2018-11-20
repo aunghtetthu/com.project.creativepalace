@@ -52,7 +52,7 @@
 						<div><strong>Student's Mark: </strong>#akLoopItem{searchList[studentMark]}</div>
 					</div> <!-- .col-6 -->
 					<div class="col-12">
-						<form action="upload_certificate" method="POST" enctype="multipart/form-data">
+						<form action="certificate_upload" method="POST" enctype="multipart/form-data">
 							<input type="hidden" name="studentCourseID" value="#akLoopItem{searchList[studentCourseID]}">
 							<div class="form-group">
 							    <label for="exampleFormControlFile1"><strong>Upload Certificate: </strong></label>
@@ -95,7 +95,7 @@
 						<div><strong>Student's Mark: </strong>#akLoopItem{icList[studentMark]}</div>
 					</div> <!-- .col-6 -->
 					<div class="col-12">
-						<form action="upload_certificate" method="POST" enctype="multipart/form-data">
+						<form action="certificate_upload" method="POST" enctype="multipart/form-data">
 							<input type="hidden" name="studentCourseID" value="#akLoopItem{icList[studentCourseID]}">
 							<div class="form-group">
 							    <label for="exampleFormControlFile1"><strong>Upload Certificate: </strong></label>

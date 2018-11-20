@@ -15,7 +15,7 @@ public class FileLocationContextListener implements ServletContextListener {
 //		System.out.println(servletContextEvent.getServletContext().getRealPath(File.separator));
 		ServletContext ctx = servletContextEvent.getServletContext();
 		
-		String [] fileDirs = {"staffphoto.dir", "studentphoto.dir", "coursecoverphoto.dir", "lecturepdf.dir", "lecturevideo.dir"};
+		String [] fileDirs = {"staffphoto.dir", "studentphoto.dir", "coursecoverphoto.dir", "lecturepdf.dir", "lecturevideo.dir", "certificate.dir"};
 		for(String fileDir: fileDirs) {
 			setFileAttribute(fileDir, rootPath, ctx);
 		}		

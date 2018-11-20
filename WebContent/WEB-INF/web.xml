@@ -34,4 +34,9 @@
    		<param-name>lecturevideo.dir</param-name>
       	<param-value>lecture_video</param-value>
    </context-param>
+   
+   <context-param>
+   		<param-name>certificate.dir</param-name>
+      	<param-value>certificate</param-value>
+   </context-param>
 </web-app>
