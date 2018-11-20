@@ -108,4 +108,69 @@ public class CertificateDB {
 		DBConnection.closeConnection(conn);
 		return icList;
 	}
+	
+	public ArrayList<IssueCertificate> getCertifiedStudents() {
+		ArrayList<IssueCertificate> icList = new ArrayList<IssueCertificate>();
+		String sql = "SELECT s.student_name, s.student_email, s.student_phone, c.course_id, c.course_name, sc.exam_mark, ce.issue_date, ce.certificate_pdf FROM certificate ce, student_course sc, course c, student s WHERE ce.studentcourse_id = sc.studentcourse_id AND c.course_id = sc.course_id AND s.student_id = sc.student_id";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				IssueCertificate ic = new IssueCertificate();
+				ic.setStudentName(rs.getString(1));
+				ic.setStudentEmal(rs.getString(2));
+				ic.setStudentPhone(rs.getString(3));
+				ic.setCourseID(rs.getLong(4));
+				ic.setCourseName(rs.getString(5));
+				ic.setStudentMark(rs.getString(6));
+				ic.setIssueDate(rs.getString(7));
+				ic.setCertificatePDF(rs.getString(8));
+				
+				icList.add(ic);
+			}
+			
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DBConnection.closeConnection(conn);
+		return icList;
+	}
+	
+	public ArrayList<IssueCertificate> getCertifiedStudentByEmail(String email) {
+		ArrayList<IssueCertificate> icList = new ArrayList<IssueCertificate>();
+		String sql = "SELECT s.student_name, s.student_email, s.student_phone, c.course_id, c.course_name, sc.exam_mark, ce.issue_date, ce.certificate_pdf FROM certificate ce, student_course sc, course c, student s WHERE ce.studentcourse_id = sc.studentcourse_id AND c.course_id = sc.course_id AND s.student_id = sc.student_id AND s.student_email = ?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, email);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				IssueCertificate ic = new IssueCertificate();
+				ic.setStudentName(rs.getString(1));
+				ic.setStudentEmal(rs.getString(2));
+				ic.setStudentPhone(rs.getString(3));
+				ic.setCourseID(rs.getLong(4));
+				ic.setCourseName(rs.getString(5));
+				ic.setStudentMark(rs.getString(6));
+				ic.setIssueDate(rs.getString(7));
+				ic.setCertificatePDF(rs.getString(8));
+				
+				icList.add(ic);
+			}
+			
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DBConnection.closeConnection(conn);
+		return icList;
+	}
 }
