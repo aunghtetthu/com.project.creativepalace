@@ -595,6 +595,11 @@ footer {
 	margin-bottom: 10px;
 }
 
+#course-content table {
+	margin-top: 30px;
+	background-color: #FFFFFF;
+}
+
 .my-not-found {
 	margin-top: 30px;
 	margin-bottom: 40px;

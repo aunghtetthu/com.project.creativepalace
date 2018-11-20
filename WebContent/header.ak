@@ -35,7 +35,7 @@
 					<a href="register" class="btn btn-success">Register</a>
 				#endIf
 				#if(#agkt{student})
-					<a class="account-link" href="#">#agkt{studentName}</a>
+					<a class="account-link" href="student_profile">#agkt{studentName}</a>
 
 					<div class="menu-control">
 						<i class="fas fa-caret-down"></i>
@@ -44,7 +44,7 @@
 					<div class="student-menu d-none">
 						<ul>
 							<li><a href="dashboard_course">Dashboard</a></li>
-							<li><a href="#">Profile</a></li>
+							<li><a href="student_profile">Profile</a></li>
 							<li><a href="logout">Log Out</a></li>
 						</ul>
 					</div>

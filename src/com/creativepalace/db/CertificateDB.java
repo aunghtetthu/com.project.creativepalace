@@ -173,4 +173,33 @@ public class CertificateDB {
 		DBConnection.closeConnection(conn);
 		return icList;
 	}
+	
+	public ArrayList<IssueCertificate> certificateDashboard(Long studentID) {
+		ArrayList<IssueCertificate> icList = new ArrayList<IssueCertificate>();
+		String sql = "SELECT c.course_name, sc.exam_mark, ce.certificate_pdf FROM certificate ce, student_course sc, course c, student s WHERE ce.studentcourse_id = sc.studentcourse_id AND c.course_id = sc.course_id AND s.student_id = sc.student_id AND s.student_id = ?";
+		Connection conn = DBConnection.createConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setLong(1, studentID);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				IssueCertificate ic = new IssueCertificate();
+				
+				ic.setCourseName(rs.getString(1));
+				ic.setStudentMark(rs.getString(2));
+				ic.setCertificatePDF(rs.getString(3));
+				
+				icList.add(ic);
+			}
+			
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DBConnection.closeConnection(conn);
+		return icList;
+	}
 }

@@ -98,8 +98,7 @@
 				        <td>#akLoopItem{adminList[staffEmail]}</td>
 				        <td>#akLoopItem{adminList[staffPhone]}</td>
 				        <td>#akLoopItem{adminList[staffRole]}</td>
-				        <td><img src="#agkt{baseUrl}/staff_photo/
-						#akLoopItem{adminList[staffPhoto]}" class="img-fluid img-thumbnail staff-profile"></td>
+				        <td><img src="#agkt{baseUrl}/staff_photo/#akLoopItem{adminList[staffPhoto]}" class="img-fluid img-thumbnail staff-profile"></td>
 				    </tr>
 				#akEndLoop{adminList}
 				
