@@ -3,7 +3,7 @@
 =========================================================================== -->
 <section id="home-course-content">
 	<div class="slogan-content text-center">
-		<div>Think High, Aim Big, Get Knowledge,<br/> Join Creative Palace</div>
+		<div>Every Time, Everywhere, You Can Learn.<br/> Join Creative Palace Now!</div>
 		<a class="btn btn-lg btn-success" href="course_all">Explore Course</a>
 	</div>
 </section>

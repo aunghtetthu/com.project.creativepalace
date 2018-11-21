@@ -24,7 +24,7 @@
 						<li><a href="index">Home</a></li>
 						<li><a href="course_all">Courses</a></li>
 						<li><a href="FAQ">FAQ</a></li>
-						<li><a href="#">Contact Us</a></li>
+						<li><a href="contact_us">Contact Us</a></li>
 					</ul>
 				</div> <!-- .menu-wrapper -->
 			</div> <!-- .col-4 .text-center -->

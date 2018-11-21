@@ -536,20 +536,71 @@ footer {
 
 #home-course-content .slogan-content {
 	background-color: rgba(89, 244, 66, 0.8);
-	width: 50%;
+	width: 54%;
 	margin: 0 auto;
 	border: 2px solid #3AFF51;
 	padding: 40px;
 	font-size: 30px;
 	font-weight: bold;
+	line-height: 2;
 	color: #000000;
 }
 
 #home-course-content .slogan-content .btn {
-	margin-top: 50px;
+	margin-top: 30px;
 }
+
+
 /* ----------------------------------------------------------------------------
 #home-course-content ends here
+---------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------
+#contact-us-section starts here
+---------------------------------------------------------------------------- */
+#contact-us-section {
+	background-image: url("../img/course-content-background.jpg");
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: cover;
+	display: block;
+}
+
+.contact-us {
+	background-color: rgba(0, 0, 0, 0.8);
+	width: 100%;
+	min-height: 672px;
+	color: #FFFFFF;
+	padding: 70px;
+}
+
+.contact-us .my-title {
+	margin-bottom: 100px;
+}
+
+.contact-us .my-header {
+	margin-bottom: 20px;
+}
+
+.contact-us .branch-contact span {
+	margin-bottom: 7px;
+	display: block;
+}
+
+.my-media .my-title {
+	margin-top: 100px;
+	margin-bottom: 0 !important;
+}
+
+.my-media span:first-child {
+	margin-right: 12px;
+}
+
+.my-media a {
+	color: inherit;
+}
+/* ----------------------------------------------------------------------------
+#contact-us-section ends here
 ---------------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------------
