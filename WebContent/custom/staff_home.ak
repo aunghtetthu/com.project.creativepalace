@@ -53,7 +53,7 @@
 				</a>
 			</div> <!-- .col-4 -->
 			<div class="col-4">
-				<a href="#" class="category text-center">
+				<a href="FAQ" class="category text-center">
 					<i class="far fa-question-circle"></i>
 					<p class="my-header">FAQ</p>
 				</a>

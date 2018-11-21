@@ -21,9 +21,9 @@
 			<div class="col-7 text-center">
 				<div class="menu-wrapper">
 					<ul>
+						<li><a href="index">Home</a></li>
 						<li><a href="course_all">Courses</a></li>
-						<li><a href="#">Discussion Forum</a></li>
-						<li><a href="#">FAQ</a></li>
+						<li><a href="FAQ">FAQ</a></li>
 						<li><a href="#">Contact Us</a></li>
 					</ul>
 				</div> <!-- .menu-wrapper -->

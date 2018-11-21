@@ -737,3 +737,33 @@ div.enroll-message {
 /* ----------------------------------------------------------------------------
 #exam-section ends here
 ---------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------
+#FAQ-section starts here
+---------------------------------------------------------------------------- */
+#FAQ-section .FAQ-wrapper {
+	background-color: #FFFFFF;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 30px; 
+}
+
+#FAQ-section .FAQ-wrapper .my-header {
+	margin-bottom: 10px;
+}
+
+#FAQ-section .FAQ-wrapper .FAQ-box {
+	padding: 30px 0;
+	border-bottom: 2px solid #3AFF51;
+}
+
+#FAQ-section .FAQ-wrapper .FAQ-box .FAQ-question {
+	margin-bottom: 15px;
+}
+
+#FAQ-section .FAQ-wrapper .FAQ-box .btn {
+	margin-top: 15px;
+}
+/* ----------------------------------------------------------------------------
+#FAQ-section ends here
+---------------------------------------------------------------------------- */
