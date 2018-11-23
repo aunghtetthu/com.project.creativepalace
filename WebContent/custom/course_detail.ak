@@ -40,10 +40,7 @@
 				#agkt{courseName}
 			</div> <!-- .my-header -->
 			<div class="uploader">
-				Uploaded by 
-				<a href="staff_detail?staffID=#agkt{staffID}">
-					#agkt{staffName}
-				</a>
+				Uploaded by #agkt{staffName}
 			</div> <!-- .uploader -->
 			<div class="course-coverphoto">
 				<img class="img-fluid" src="#agkt{courseCoverPhoto}">

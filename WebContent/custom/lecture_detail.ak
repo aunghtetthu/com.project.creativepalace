@@ -26,13 +26,13 @@
 				<div class="lecture-name">
 					<div class="row">
 						<div class="col-2 text-center">
-							<a class="btn btn-light" href="#"><i class="fas fa-chevron-left"></i> Previous</a>
+							<!-- <a class="btn btn-light" href="#"><i class="fas fa-chevron-left"></i> Previous</a> -->
 						</div> <!-- .col-2 -->
 						<div class="col-8 text-center">
 							<div class="my-header">#agkt{lectureTitle}</div>
 						</div> <!-- .col-8 -->
 						<div class="col-2 text-center">
-							<a class="btn btn-light" href="#">Next <i class="fas fa-chevron-right"></i></a>
+							<!-- <a class="btn btn-light" href="#">Next <i class="fas fa-chevron-right"></i></a> -->
 						</div> <!-- .col-2 -->
 					</div> <!-- .row -->
 				</div> <!-- .lecture-name -->

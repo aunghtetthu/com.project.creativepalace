@@ -37,7 +37,7 @@ public class faqAdd extends AbstractServlet {
 				Staff s = (Staff) session.getAttribute("staffObj");
 				this.addViewObject("staffID", s.getStaffID());
 
-				this.setHeader("staffPlainHeader");
+				this.setHeader("staffHeader");
 				this.showView(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

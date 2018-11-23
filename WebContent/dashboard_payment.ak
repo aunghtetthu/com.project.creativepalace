@@ -44,7 +44,7 @@
 				<div class="col-6">
 					<div class="my-header">Payment Data</div>
 					<div><strong>Status: </strong>Paid</div>
-					<div><strong>Amount: </strong>#akLoopItem{pdList[amount]}</div>
+					<div><strong>Amount: </strong>#akLoopItem{pdList[amount]} Kyats</div>
 					<div><strong>Date: </strong>#akLoopItem{pdList[date]}</div>
 				</div> <!-- .col-6 -->
 				<div class="col-6">

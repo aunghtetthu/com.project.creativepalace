@@ -8,7 +8,7 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
 			    <li class="nav-item">
-			        <a class="nav-link menu-active" href="certificate_candidate">Canditate</span></a>
+			        <a class="nav-link menu-active" href="certificate_candidate">Candidate</span></a>
 			    </li>
 			    <li class="nav-item">
 			        <a class="nav-link" href="certificate_certified_student">Certified Student</a>

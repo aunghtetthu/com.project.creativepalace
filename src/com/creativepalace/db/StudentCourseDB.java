@@ -13,7 +13,7 @@ import com.creativepalace.model.StudentCourse;
 
 public class StudentCourseDB {
 	public void enrollCourse(Long studentID, Long courseID) {
-		String sql = "INSERT INTO student_course (course_id, student_id, exam_mark, course_access, student_type) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO student_course (course_id, student_id, exam_mark, course_access, student_type) VALUES (?, ?, ?, ?, ?)";
 		Connection conn = DBConnection.createConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
